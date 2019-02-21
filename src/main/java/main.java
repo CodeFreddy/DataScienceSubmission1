@@ -51,7 +51,7 @@ class Main {
 
         qe.getResult();
 
-        
+
         System.out.println("Finished");
     }
 }
