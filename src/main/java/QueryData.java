@@ -17,7 +17,8 @@ public class QueryData {
 
         Map<String,String> pageQueryMap;
         Map<String,String> sectionQueryMap;
-
+        ArrayList<Data.Page> pageList;
+        ArrayList<Data.Section> sectionList;
 
     static final private int numofQueryFiles = 5;
     //static final private String pageName = "train.pages.cbor";
@@ -28,6 +29,8 @@ public class QueryData {
         if (pageQueryMap == null || sectionQueryMap == null){
             pageQueryMap = new HashMap<>();
             sectionQueryMap = new HashMap<>();
+            pageList = new ArrayList<>();
+            sectionList = new ArrayList<>();
             try {
                 storeAllQuery(queryFilePath);
 
@@ -47,12 +50,17 @@ public class QueryData {
         return sectionQueryMap;
     }
 
+    public ArrayList<Data.Page> getPageList(){ return pageList;}
+
+    public ArrayList<Data.Section> getSectionList(){return sectionList;}
+
     public void storeAllQuery(String filePath) throws FileNotFoundException {
         System.out.println("Retrieve queries from " + filePath);
         FileInputStream fis = new FileInputStream(new File(filePath));
 
         for(Data.Page page : DeserializeData.iterableAnnotations(fis))
         {
+            pageList.add(page);
             pageQueryMap.put(page.getPageId(),page.getPageName());
 
 
@@ -62,7 +70,7 @@ public class QueryData {
                     //queryStr += "/";
 
                     //queryStr += section.getHeading();
-
+                    sectionList.add(section);
                     queryStr +=" ";
 
                     queryStr += section.getHeading();

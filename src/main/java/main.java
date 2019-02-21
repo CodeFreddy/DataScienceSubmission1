@@ -1,8 +1,5 @@
 package main.java;
 
-import main.java.QueryExpansion.QueryExpansion;
-import org.apache.lucene.queryparser.classic.ParseException;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -46,14 +43,6 @@ class Main {
 
         SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
 
-
-        QueryExpansion qe = new QueryExpansion(pageMap,INDEX_DIRECTORY);
-
-        try {
-            qe.getResult();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         System.out.println("Finished");
     }
