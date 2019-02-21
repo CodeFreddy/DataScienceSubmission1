@@ -1,5 +1,8 @@
 package main.java;
 
+import main.java.QueryExpansion.QueryExpansion;
+import org.apache.lucene.queryparser.classic.ParseException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -12,7 +15,7 @@ class Main {
 
     static IndexData indexer;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         System.setProperty("file.encoding", "UTF-8");
 
         String queryPath = "C:\\CS953\\Assignment1\\queries\\benchmarkY1-train.v2.0.tar\\benchmarkY1\\benchmarkY1-train\\train.pages.cbor-outlines.cbor";
@@ -44,6 +47,11 @@ class Main {
         SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
 
 
+        QueryExpansion qe = new QueryExpansion(pageMap,INDEX_DIRECTORY);
+
+        qe.getResult();
+
+        
         System.out.println("Finished");
     }
 }
