@@ -9,6 +9,7 @@
         <module name="Assignment1" />
         <module name="CS953" />
         <module name="DataScienceAssignment1" />
+        <module name="DataScienceSubmission1" />
       </profile>
     </annotationProcessing>
   </component>
