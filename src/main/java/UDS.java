@@ -145,7 +145,7 @@ public class UDS {
                 System.out.println("output directory generated...");
             }
         }
-        File file = new File(OUTPUT_PATH + "\\" + output);
+        File file = new File(OUTPUT_PATH + "/" + output);
         if(file.createNewFile())
         {
             System.out.println(output + " generated...");

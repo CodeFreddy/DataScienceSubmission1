@@ -71,7 +71,7 @@ class Main {
     }
 
     public static void writeFile(String name, List<String> content){
-        String fullpath = OUTPUT_DIR + "\\" + name;
+        String fullpath = OUTPUT_DIR + "/" + name;
         System.out.println(fullpath);
         try (FileWriter runfile = new FileWriter(new File(fullpath))) {
             for (String line : content) {
