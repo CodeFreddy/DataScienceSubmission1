@@ -36,12 +36,12 @@ public class UJM {
         results = new HashMap<>();
         this.resultsNum = resultsNum;
 
-        queryParser = new QueryParser("parabody",new EnglishAnalyzer());
+        queryParser = new QueryParser("content",new EnglishAnalyzer());
 
         indexSearcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(new File(indexPath).toPath())));
 
         indexReader = indexSearcher.getIndexReader();
-        float sumTotalTermFreq = indexReader.getSumTotalTermFreq("parabody");
+        float sumTotalTermFreq = indexReader.getSumTotalTermFreq("content");
 
         SimilarityBase custom = new SimilarityBase() {
             protected float score(BasicStats stats, float freq, float docLen) {
@@ -67,7 +67,7 @@ public class UJM {
             //for each word in a query
 
             for (String term : page.getPageName().split(" ")){
-                Term t = new Term("parabody",term);
+                Term t = new Term("content",term);
                 TermQuery termQuery = new TermQuery(t);
 
 

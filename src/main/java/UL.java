@@ -17,10 +17,12 @@ import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.similarities.BasicStats;
 import org.apache.lucene.search.similarities.SimilarityBase;
+import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class UL {
@@ -39,11 +41,14 @@ public class UL {
         results = new HashMap<>();
         this.resultsNum = resultsNum;
 
-        queryParser = new QueryParser("parabody",new EnglishAnalyzer());
+        queryParser = new QueryParser("content",new EnglishAnalyzer());
+        Directory directory = FSDirectory.open(Paths.get(indexPath));
+        //indexSearcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(new File(indexPath).toPath())));
 
-        indexSearcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(new File(indexPath).toPath())));
+        //indexReader = indexSearcher.getIndexReader();
 
-        indexReader = indexSearcher.getIndexReader();
+        indexReader = DirectoryReader.open(directory);
+        indexSearcher = new IndexSearcher(indexReader);
 
         SimilarityBase custom = new SimilarityBase() {
             protected float score(BasicStats stats, float freq, float docLen) {
@@ -61,6 +66,7 @@ public class UL {
 
         for (Data.Page page : pageList){
             String queryId = page.getPageId();
+            //System.out.println("Query ID: " + queryId);
             if (!results.containsKey(queryId)){
                 results.put(queryId,new HashMap<>());
             }
@@ -68,16 +74,19 @@ public class UL {
             //for each word in a query
 
             for (String term : page.getPageName().split(" ")){
-                Term t = new Term("parabody",term);
+                Term t = new Term("content",term);
                 TermQuery termQuery = new TermQuery(t);
-
+                System.out.println("Page name: "+ term);
                 TopDocs topDocs = indexSearcher.search(termQuery,resultsNum);
                 ScoreDoc[] scores = topDocs.scoreDocs;
-
+                System.out.println("Score size: " + scores.length);
                 for (int i = 0; i < scores.length;i++){
                     Document doc = indexSearcher.doc(scores[i].doc);
                     String paraId = doc.get("paraid");
-                    String docBody = doc.get("parabody");
+                    String docBody = doc.get("content");
+//                    System.out.println("paraid: " + paraId);
+//                    System.out.println("parabody: " + docBody);
+
                     List<String> unigramList = unigramAnalyze(docBody);
 
                     int wordsSize = getWordsSize(unigramList);

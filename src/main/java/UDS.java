@@ -63,7 +63,7 @@ public class UDS {
     private static String INDEX_DIR;
     private static String OUTPUT_PATH;
     //public static String PARAGRAPH = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-paragraphs.cbor";
-    private  static String output = "results_uds.run";
+    private  static String output = "UnigramLanguageModel-uds.run";
     private int resultsNum;
 
     // returns IndexReader
@@ -112,7 +112,7 @@ public class UDS {
         IndexSearcher indexSearcher = new IndexSearcher(getIndexReader(INDEX_DIR));
         indexSearcher.setSimilarity(getSimilarity());
 
-        QueryParser parser = new QueryParser("parabody", new EnglishAnalyzer());
+        QueryParser parser = new QueryParser("content", new EnglishAnalyzer());
         ArrayList<RunFileString> ret = new ArrayList<>();
 
         try{
