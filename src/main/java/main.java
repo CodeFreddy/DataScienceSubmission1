@@ -60,10 +60,10 @@ class Main {
 //        UL page_ul = new UL(pageList, Max_Results, INDEX_DIRECTORY);
 //        writeFile("UnigramLanguageModel-Laplace.run", page_ul.getList());
 
-        UDS page_uds = new UDS(pageList, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR);
+        //UDS page_uds = new UDS(pageList, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR);
 //
-//        UJM page_ujm = new UJM(pageList, Max_Results, INDEX_DIRECTORY);
-//        writeFile("UnigramLanguageModel-JM.run", page_ujm.getList());
+        UJM page_ujm = new UJM(pageList, Max_Results, INDEX_DIRECTORY);
+        writeFile("UnigramLanguageModel-JM.run", page_ujm.getList());
 
 
 
