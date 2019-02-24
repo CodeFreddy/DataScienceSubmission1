@@ -31,8 +31,8 @@ class Main {
 
         INDEX_DIRECTORY = args[0];
         queryPath = args[1];
-        dataPath = args[2];
-        OUTPUT_DIR = args[3];
+        //dataPath = args[2];
+        OUTPUT_DIR = args[2];
 
         //indexer = new IndexData(INDEX_DIRECTORY, dataPath);
         QueryData queryData = new QueryData(queryPath);
@@ -50,13 +50,18 @@ class Main {
 
 
         SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
+
+
+
         System.out.println("================");
         System.out.println("length is: " + pageList.size());
+
+
         UL page_ul = new UL(pageList, Max_Results, INDEX_DIRECTORY);
         writeFile("UnigramLanguageModel-Laplace.run", page_ul.getList());
 
         UDS page_uds = new UDS(pageList, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR);
-
+//
         UJM page_ujm = new UJM(pageList, Max_Results, INDEX_DIRECTORY);
         writeFile("UnigramLanguageModel-JM.run", page_ujm.getList());
 
