@@ -30,7 +30,7 @@ public class Main {
         INDEX_DIRECTORY = args[0];
         queryPath = args[1];
         //dataPath = args[2];
-        //OUTPUT_DIR = args[2];
+        OUTPUT_DIR = args[2];
 
         //indexer = new IndexData(INDEX_DIRECTORY, dataPath);
         QueryData queryData = new QueryData(queryPath);
@@ -47,7 +47,7 @@ public class Main {
         // Lucene Search
 
 
-        SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
+        //SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
 
 
 
@@ -65,7 +65,7 @@ public class Main {
 
 
         System.out.println("QueryExpansion Begin");
-        QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY);
+        QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
 
         qe.runPage();
         qe.runSection();

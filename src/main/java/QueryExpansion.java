@@ -26,12 +26,13 @@ public class QueryExpansion {
     private String INDEX_DIR;
     private int max_result;
     private QueryParser parser;
-    static final private String OUTPUT_DIR = "output";
-    public QueryExpansion(Map<String, String> pageMap,Map<String,String> sectionMap, String indexPath){
+    static  private String OUTPUT_DIR="";
+    public QueryExpansion(Map<String, String> pageMap,Map<String,String> sectionMap, String indexPath,String output){
         this.pageMap = pageMap;
         this.INDEX_DIR = indexPath;
         this.max_result = 100;
         this.sectionMap = sectionMap;
+        OUTPUT_DIR = output;
 
     }
 
