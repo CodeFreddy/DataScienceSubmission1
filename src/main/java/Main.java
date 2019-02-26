@@ -47,7 +47,7 @@ public class Main {
         // Lucene Search
 
 
-        //SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
+        SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
 
 
 
@@ -55,13 +55,13 @@ public class Main {
         System.out.println("length is: " + pageList.size());
 
 
-//        UL page_ul = new UL(pageList, Max_Results, INDEX_DIRECTORY);
-//        writeFile("UnigramLanguageModel-Laplace.run", page_ul.getList());
+        UL page_ul = new UL(pageList, Max_Results, INDEX_DIRECTORY);
+        writeFile("UnigramLanguageModel-Laplace.run", page_ul.getList());
+
+        UDS page_uds = new UDS(pageList, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR);
 //
-//        UDS page_uds = new UDS(pageList, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR);
-////
-//        UJM page_ujm = new UJM(pageList, Max_Results, INDEX_DIRECTORY);
-//        writeFile("UnigramLanguageModel-JM.run", page_ujm.getList());
+        UJM page_ujm = new UJM(pageList, Max_Results, INDEX_DIRECTORY);
+        writeFile("UnigramLanguageModel-JM.run", page_ujm.getList());
 
 
         System.out.println("QueryExpansion Begin");
