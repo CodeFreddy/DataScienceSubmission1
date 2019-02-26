@@ -31,7 +31,7 @@ public class UJM {
 
     PriorityQueue<DocResults> docQueue = new PriorityQueue<>((a, b) -> (a.score < b.score ? 1 : a .score > b.score ?  -1 : 0));
 
-    public UJM(List<Data.Page> pageList, int resultsNum, String indexPath) throws IOException{
+    public UJM(Map<String, String> queriesStr, int resultsNum, String indexPath) throws IOException{
         runFileContent = new ArrayList<>();
         results = new HashMap<>();
         this.resultsNum = resultsNum;
@@ -58,15 +58,16 @@ public class UJM {
         indexSearcher.setSimilarity(custom);
 
 
-        for (Data.Page page : pageList){
-            String queryId = page.getPageId();
+        for (Map.Entry<String,String> entry : queriesStr.entrySet()){
+            String queryStr = entry.getValue();
+            String queryId = entry.getKey();
             if (!results.containsKey(queryId)){
                 results.put(queryId,new HashMap<>());
             }
 
             //for each word in a query
 
-            for (String term : page.getPageName().split(" ")){
+            for (String term : queryStr.split(" ")){
                 Term t = new Term("content",term);
                 TermQuery termQuery = new TermQuery(t);
 

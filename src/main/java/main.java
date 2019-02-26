@@ -7,6 +7,7 @@ import org.apache.lucene.queryparser.classic.ParseException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ class Main {
         Map<String,String> pageMap = queryData.getAllPageQueries();
         Map<String,String> sectionMap = queryData.getAllSectionQueries();
         ArrayList<Data.Page> pageList = queryData.getPageList();
-
+        ArrayList<Data.Section> sectionList = queryData.getSectionList();
         // Store all query strings temporarily.
 
 
@@ -49,7 +50,7 @@ class Main {
         // Lucene Search
 
 
-        SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
+        //SearchData searcher = new SearchData(INDEX_DIRECTORY, pageMap, sectionMap, Max_Results);
 
 
 
@@ -57,14 +58,17 @@ class Main {
         System.out.println("length is: " + pageList.size());
 
 
-        UL page_ul = new UL(pageList, Max_Results, INDEX_DIRECTORY);
-        writeFile("UnigramLanguageModel-Laplace.run", page_ul.getList());
+        UL page_ul = new UL(pageMap, Max_Results, INDEX_DIRECTORY);
+        UL section_ul = new UL(sectionMap, Max_Results, INDEX_DIRECTORY);
+        writeFile("UnigramLanguageModel-Laplace-Page.run", page_ul.getList());
+        writeFile("UnigrameLanguageModel-Laplace-Section.run", section_ul.getList());
 
-        UDS page_uds = new UDS(pageList, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR);
-//
-        UJM page_ujm = new UJM(pageList, Max_Results, INDEX_DIRECTORY);
-        writeFile("UnigramLanguageModel-JM.run", page_ujm.getList());
-
+        UDS page_uds = new UDS(pageMap, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR, "UnigramLanguageModel-UDS-Page.run");
+        UDS section_uds = new UDS(sectionMap,Max_Results, INDEX_DIRECTORY, OUTPUT_DIR, "UnigramLanguageModel-UDS-Section.run");
+        UJM page_ujm = new UJM(pageMap, Max_Results, INDEX_DIRECTORY);
+        UJM section_ujm = new UJM(sectionMap, Max_Results, INDEX_DIRECTORY);
+        writeFile("UnigramLanguageModel-JM-Page.run", page_ujm.getList());
+        writeFile("UnigramLanguageModel-JM-Section.run", section_ujm.getList());
 
 
         System.out.println("Finished");

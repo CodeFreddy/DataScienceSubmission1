@@ -10,11 +10,9 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TermQuery;
-import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.*;
 import org.apache.lucene.search.similarities.BasicStats;
 import org.apache.lucene.search.similarities.SimilarityBase;
 import org.apache.lucene.store.Directory;
@@ -36,7 +34,7 @@ public class UL {
     PriorityQueue<DocResults> docQueue = new PriorityQueue<>((a, b) -> (a.score < b.score ? 1 : a .score > b.score ?  -1 : 0));
 
 
-    public UL(List<Data.Page> pageList, int resultsNum, String indexPath) throws IOException{
+    public UL(Map<String, String> queriesStr, int resultsNum, String indexPath) throws IOException, ParseException {
         runFileContent = new ArrayList<>();
         results = new HashMap<>();
         this.resultsNum = resultsNum;
@@ -64,8 +62,9 @@ public class UL {
 
         indexSearcher.setSimilarity(custom);
 
-        for (Data.Page page : pageList){
-            String queryId = page.getPageId();
+        for (Map.Entry<String,String> entry : queriesStr.entrySet()){
+            String queryStr = entry.getValue();
+            String queryId = entry.getKey();
             //System.out.println("Query ID: " + queryId);
             if (!results.containsKey(queryId)){
                 results.put(queryId,new HashMap<>());
@@ -73,14 +72,14 @@ public class UL {
 
             //for each word in a query
 
-            for (String term : page.getPageName().split(" ")){
-                Term t = new Term("content",term);
+            for(String term: queryStr.split(" ")) {
+                Term t = new Term("content", term);
                 TermQuery termQuery = new TermQuery(t);
-                System.out.println("Page name: "+ term);
-                TopDocs topDocs = indexSearcher.search(termQuery,resultsNum);
+                //System.out.println("Page name: " + term);
+                TopDocs topDocs = indexSearcher.search(termQuery, resultsNum);
                 ScoreDoc[] scores = topDocs.scoreDocs;
                 System.out.println("Score size: " + scores.length);
-                for (int i = 0; i < scores.length;i++){
+                for (int i = 0; i < scores.length; i++) {
                     Document doc = indexSearcher.doc(scores[i].doc);
                     String paraId = doc.get("paraid");
                     String docBody = doc.get("content");
@@ -92,13 +91,13 @@ public class UL {
                     int wordsSize = getWordsSize(unigramList);
                     int docSize = unigramList.size();
 
-                    if (!results.get(queryId).containsKey(paraId)){
-                        results.get(queryId).put(paraId,0.0f);
+                    if (!results.get(queryId).containsKey(paraId)) {
+                        results.get(queryId).put(paraId, 0.0f);
                     }
 
                     float score = results.get(queryId).get(paraId);
 
-                    score += (float)(scores[i].score / (docSize + wordsSize));
+                    score += (float) (scores[i].score / (docSize + wordsSize));
                     results.get(queryId).put(paraId, score);
                 }
             }

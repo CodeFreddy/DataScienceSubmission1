@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.lang.annotation.Documented;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Map;
 
 
 class RunFileString{
@@ -63,7 +64,7 @@ public class UDS {
     private static String INDEX_DIR;
     private static String OUTPUT_PATH;
     //public static String PARAGRAPH = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-paragraphs.cbor";
-    private  static String output = "UnigramLanguageModel-uds.run";
+    private  static String output = "";
     private int resultsNum;
 
     // returns IndexReader
@@ -88,16 +89,18 @@ public class UDS {
         return similarity;
     }
 
-    public UDS(ArrayList<Data.Page> pageList, int resultsNum, String indexPath, String outputPath)
+    public UDS(Map<String, String> queriesStr, int resultsNum, String indexPath, String outputPath, String outputName)
     {
         INDEX_DIR = indexPath;
         OUTPUT_PATH = outputPath;
         this.resultsNum = resultsNum;
+        output = outputName;
         try{
             ArrayList<RunFileString> results = new ArrayList<>();
-            for(Data.Page page: pageList)
+            for(Map.Entry<String,String> entry : queriesStr.entrySet())
             {
-                String queryStr = page.getPageId();
+                String queryStr = entry.getValue();
+                String queryId = entry.getKey();
                 ArrayList<RunFileString> res = getRanked(queryStr);
                 results.addAll(res);
             }
@@ -116,7 +119,7 @@ public class UDS {
         ArrayList<RunFileString> ret = new ArrayList<>();
 
         try{
-            Query q = parser.parse(query);
+            Query q = parser.parse(QueryParser.escape(query));
             TopDocs topDocs = indexSearcher.search(q, resultsNum);
             ScoreDoc[] scores = topDocs.scoreDocs;
             for(int i = 0; i < scores.length; i++)
