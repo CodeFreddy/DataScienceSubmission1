@@ -1,7 +1,6 @@
 package main.java;
 
 import edu.unh.cs.treccar_v2.Data;
-import main.java.QueryExpansion.QueryExpansion;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 import java.io.File;
@@ -12,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-class Main {
-
+public class Main {
     static private String INDEX_DIRECTORY = "C:\\CS953\\DataScienceSubmission1\\index";
     static private String OUTPUT_DIR = "C:\\CS953\\DataScienceSubmission1\\output";
     static final private int Max_Results = 100;
@@ -70,6 +68,11 @@ class Main {
         writeFile("UnigramLanguageModel-JM-Page.run", page_ujm.getList());
         writeFile("UnigramLanguageModel-JM-Section.run", section_ujm.getList());
 
+        System.out.println("QueryExpansion Begin");
+        QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+
+        qe.runPage();
+        qe.runSection();
 
         System.out.println("Finished");
     }

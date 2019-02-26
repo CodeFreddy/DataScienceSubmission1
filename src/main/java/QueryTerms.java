@@ -1,11 +1,9 @@
-package main.java.QueryExpansion;
+package main.java;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
 import java.io.IOException;
-import java.io.Reader;
 import java.io.StringReader;
 import java.util.*;
 
@@ -16,6 +14,9 @@ public class QueryTerms {
     private int id;
     public String getField() { return null;  }
 
+
+    //key is term, value is frequency
+    public Map<String, Integer> termsMap = new HashMap<>();
     /**
      *
      * @param queryTerms The original list of terms from the query, can contain duplicates
@@ -27,40 +28,40 @@ public class QueryTerms {
 
 
 
-    public QueryTerms(String queryString, Analyzer analyzer,int id) throws IOException {
+    public QueryTerms(String queryString, Analyzer analyzer, int id) throws IOException {
         this.id = id;
         if (analyzer != null)
         {
-            TokenStream stream = analyzer.tokenStream("", new StringReader(queryString));
+            TokenStream stream = analyzer.tokenStream("content", new StringReader(queryString));
             if (stream != null)
             {
                 List<String> terms = new ArrayList<String>();
 
                 processTerms(queryString.split(" "));
 
-                tokenTerms(queryString);
+//                tokenTerms(queryString);
             }
         }
     }
 
-    private void tokenTerms(String queryString) throws IOException{
-        Analyzer analyzer = new UnigramAnalyzer();
-
-        Reader reader = new StringReader(queryString);
-        TokenStream tokenStream = analyzer.tokenStream("content",queryString);
-
-        CharTermAttribute charTermAttribute = tokenStream.addAttribute(CharTermAttribute.class);
-        tokenStream.reset();
-
-        while (tokenStream.incrementToken()){
-            String token = charTermAttribute.toString();
-            termList.add(token);
-
-        }
-
-        tokenStream.end();
-        tokenStream.close();
-    }
+//    private void tokenTerms(String queryString) throws IOException{
+//        Analyzer analyzer = new UnigramAnalyzer();
+//
+//        Reader reader = new StringReader(queryString);
+//        TokenStream tokenStream = analyzer.tokenStream("content",queryString);
+//
+//        CharTermAttribute charTermAttribute = tokenStream.addAttribute(CharTermAttribute.class);
+//        tokenStream.reset();
+//
+//        while (tokenStream.incrementToken()){
+//            String token = charTermAttribute.toString();
+//            termList.add(token);
+//
+//        }
+//
+//        tokenStream.end();
+//        tokenStream.close();
+//    }
 
     public Map<String,Float> getScoreRank(){
 
@@ -131,34 +132,49 @@ public class QueryTerms {
         return tmpList;
     }
     private void processTerms(String[] queryTerms) {
-        if (queryTerms != null) {
-            Arrays.sort(queryTerms);
-            Map<String,Integer> tmpSet = new HashMap<String,Integer>(queryTerms.length);
-            //filter out duplicates
-            List<String> tmpList = new ArrayList<String>(queryTerms.length);
-            List<Integer> tmpFreqs = new ArrayList<Integer>(queryTerms.length);
-            int j = 0;
-            for (int i = 0; i < queryTerms.length; i++) {
+//        if (queryTerms != null) {
+//            Arrays.sort(queryTerms);
+//            Map<String,Integer> tmpSet = new HashMap<String,Integer>(queryTerms.length);
+//            //filter out duplicates
+//            List<String> tmpList = new ArrayList<String>(queryTerms.length);
+//            List<Integer> tmpFreqs = new ArrayList<Integer>(queryTerms.length);
+//            int j = 0;
+//            for (int i = 0; i < queryTerms.length; i++) {
+//                String term = queryTerms[i];
+//                Integer position = tmpSet.get(term);
+//                if (position == null) {
+//                    tmpSet.put(term, Integer.valueOf(j++));
+//                    tmpList.add(term);
+//                    tmpFreqs.add(Integer.valueOf(1));
+//                }
+//                else {
+//                    Integer integer = tmpFreqs.get(position.intValue());
+//                    tmpFreqs.set(position.intValue(), Integer.valueOf(integer.intValue() + 1));
+//                }
+//            }
+//            terms = tmpList.toArray(terms);
+//            //termFreqs = (int[])tmpFreqs.toArray(termFreqs);
+//            termFreqs = new int[tmpFreqs.size()];
+//            int i = 0;
+//            for (final Integer integer : tmpFreqs) {
+//                termFreqs[i++] = integer.intValue();
+//            }
+//        }
+
+        if (queryTerms != null){
+            for (int i =0; i < queryTerms.length;i++){
                 String term = queryTerms[i];
-                Integer position = tmpSet.get(term);
-                if (position == null) {
-                    tmpSet.put(term, Integer.valueOf(j++));
-                    tmpList.add(term);
-                    tmpFreqs.add(Integer.valueOf(1));
+                if (termsMap.containsKey(term)){
+                    termsMap.put(term,termsMap.get(term)+1);
+                }else{
+                    termsMap.put(term,1);
                 }
-                else {
-                    Integer integer = tmpFreqs.get(position.intValue());
-                    tmpFreqs.set(position.intValue(), Integer.valueOf(integer.intValue() + 1));
-                }
-            }
-            terms = tmpList.toArray(terms);
-            //termFreqs = (int[])tmpFreqs.toArray(termFreqs);
-            termFreqs = new int[tmpFreqs.size()];
-            int i = 0;
-            for (final Integer integer : tmpFreqs) {
-                termFreqs[i++] = integer.intValue();
             }
         }
+    }
+
+    public Map<String,Integer> getTermsMap(){
+        return termsMap;
     }
 
     public int[] getTermFreqs(){
@@ -203,5 +219,8 @@ public class QueryTerms {
 
 
 
+    public int[] getTermFrequencies() {
+        return termFreqs;
+    }
 
 }
