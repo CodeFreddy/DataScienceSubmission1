@@ -1,7 +1,6 @@
 package main.java;
 
 import edu.unh.cs.treccar_v2.Data;
-import main.java.QueryExpansion.QueryExpansion;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 import java.io.File;
@@ -11,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-class Main {
-
+public class Main {
     static private String INDEX_DIRECTORY = "C:\\CS953\\DataScienceSubmission1\\index";
     static private String OUTPUT_DIR = "C:\\CS953\\DataScienceSubmission1\\output";
     static final private int Max_Results = 100;
@@ -32,7 +30,7 @@ class Main {
         INDEX_DIRECTORY = args[0];
         queryPath = args[1];
         //dataPath = args[2];
-        OUTPUT_DIR = args[2];
+        //OUTPUT_DIR = args[2];
 
         //indexer = new IndexData(INDEX_DIRECTORY, dataPath);
         QueryData queryData = new QueryData(queryPath);
@@ -57,15 +55,20 @@ class Main {
         System.out.println("length is: " + pageList.size());
 
 
-        UL page_ul = new UL(pageList, Max_Results, INDEX_DIRECTORY);
-        writeFile("UnigramLanguageModel-Laplace.run", page_ul.getList());
-
-        UDS page_uds = new UDS(pageList, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR);
+//        UL page_ul = new UL(pageList, Max_Results, INDEX_DIRECTORY);
+//        writeFile("UnigramLanguageModel-Laplace.run", page_ul.getList());
 //
-        UJM page_ujm = new UJM(pageList, Max_Results, INDEX_DIRECTORY);
-        writeFile("UnigramLanguageModel-JM.run", page_ujm.getList());
+//        UDS page_uds = new UDS(pageList, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR);
+////
+//        UJM page_ujm = new UJM(pageList, Max_Results, INDEX_DIRECTORY);
+//        writeFile("UnigramLanguageModel-JM.run", page_ujm.getList());
 
 
+        System.out.println("QueryExpansion Begin");
+        QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY);
+
+        qe.runPage();
+        qe.runSection();
 
         System.out.println("Finished");
     }
