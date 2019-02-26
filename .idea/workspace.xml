@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="debug">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/QueryExpansion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/QueryTerms.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Conversion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Dictionary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Document.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Estimator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Inferencer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/LDA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/LDACmdOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/LDADataset.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/LDAInferencer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Pair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/JGibbLDA/Topic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryTerms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/UnigramAnalyzer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion/stop_word.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/SearchData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/SearchData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/UDS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/UDS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryExpansion.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="49" column="24" lean-forward="true" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+            <state relative-caret-position="558">
+              <caret line="53" column="47" lean-forward="true" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,15 +28,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3686">
-              <caret line="194" column="48" selection-start-line="194" selection-start-column="48" selection-end-line="194" selection-end-column="48" />
+            <state relative-caret-position="4921">
+              <caret line="453" column="5" selection-start-line="453" selection-start-column="5" selection-end-line="453" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1191#1199#0" expanded="true" />
                 <element signature="e#4749#4775#0" expanded="true" />
+                <element signature="method#expandQueryByRocchio#1;class#QueryExpansion#0" />
+                <element signature="method#adjust#0;class#QueryExpansion#0" />
+                <element signature="method#merge#0;class#QueryExpansion#0" />
+                <element signature="method#combine#0;class#QueryExpansion#0" />
+                <element signature="method#find#0;class#QueryExpansion#0" />
+                <element signature="method#setBoost#1;class#QueryExpansion#0" />
+                <element signature="method#getIDF#0;class#QueryExpansion#0" />
+                <element signature="method#setBoost#2;class#QueryExpansion#0" />
+                <element signature="method#getDocs#0;class#QueryExpansion#0" />
+                <element signature="method#getDocsTerms#0;class#QueryExpansion#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/QueryTerms.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="925">
+              <caret line="224" selection-start-line="224" selection-end-line="224" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getScoreRank#0;class#QueryTerms#0" />
+                <element signature="e#5013#5014#0" expanded="true" />
+                <element signature="e#5044#5045#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,8 +187,9 @@
         <option value="$PROJECT_DIR$/src/main/java/UDS.java" />
         <option value="$PROJECT_DIR$/src/main/java/main.java" />
         <option value="$PROJECT_DIR$/src/main/java/tmp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/QueryExpansion.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/QueryExpansion.java" />
+        <option value="$PROJECT_DIR$/src/main/java/QueryTerms.java" />
       </list>
     </option>
   </component>
@@ -250,7 +254,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551155208359" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551155325231" />
     <property name="last_opened_file_path" value="C:/CS853/programmingAssignment4Group7" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -429,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551042238311</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="debug">
+      <created>1551155232838</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1551155232838</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -571,24 +582,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3686">
-          <caret line="194" column="48" selection-start-line="194" selection-start-column="48" selection-end-line="194" selection-end-column="48" />
+        <state relative-caret-position="558">
+          <caret line="53" column="47" lean-forward="true" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1191#1199#0" expanded="true" />
-            <element signature="e#4749#4775#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryTerms.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="49" column="24" lean-forward="true" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+        <state relative-caret-position="925">
+          <caret line="224" selection-start-line="224" selection-end-line="224" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getScoreRank#0;class#QueryTerms#0" />
+            <element signature="e#5013#5014#0" expanded="true" />
+            <element signature="e#5044#5045#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4921">
+          <caret line="453" column="5" selection-start-line="453" selection-start-column="5" selection-end-line="453" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1191#1199#0" expanded="true" />
+            <element signature="e#4749#4775#0" expanded="true" />
+            <element signature="method#expandQueryByRocchio#1;class#QueryExpansion#0" />
+            <element signature="method#adjust#0;class#QueryExpansion#0" />
+            <element signature="method#merge#0;class#QueryExpansion#0" />
+            <element signature="method#combine#0;class#QueryExpansion#0" />
+            <element signature="method#find#0;class#QueryExpansion#0" />
+            <element signature="method#setBoost#1;class#QueryExpansion#0" />
+            <element signature="method#getIDF#0;class#QueryExpansion#0" />
+            <element signature="method#setBoost#2;class#QueryExpansion#0" />
+            <element signature="method#getDocs#0;class#QueryExpansion#0" />
+            <element signature="method#getDocsTerms#0;class#QueryExpansion#0" />
           </folding>
         </state>
       </provider>
