@@ -101,7 +101,7 @@ public class UDS {
             {
                 String queryStr = entry.getValue();
                 String queryId = entry.getKey();
-                ArrayList<RunFileString> res = getRanked(queryStr);
+                ArrayList<RunFileString> res = getRanked(queryStr, queryId);
                 results.addAll(res);
             }
             writeArrayToFile(results);
@@ -111,23 +111,25 @@ public class UDS {
         }
     }
 
-    private ArrayList<RunFileString> getRanked(String query) throws IOException{
+    private ArrayList<RunFileString> getRanked(String queryStr, String queryId) throws IOException{
         IndexSearcher indexSearcher = new IndexSearcher(getIndexReader(INDEX_DIR));
         indexSearcher.setSimilarity(getSimilarity());
 
         QueryParser parser = new QueryParser("content", new EnglishAnalyzer());
         ArrayList<RunFileString> ret = new ArrayList<>();
 
+
         try{
-            Query q = parser.parse(QueryParser.escape(query));
+
+            Query q = parser.parse(QueryParser.escape(queryStr));
             TopDocs topDocs = indexSearcher.search(q, resultsNum);
             ScoreDoc[] scores = topDocs.scoreDocs;
             for(int i = 0; i < scores.length; i++)
             {
                 Document doc = indexSearcher.doc(scores[i].doc);
-                String docId = doc.get("paraid");
+                String docId = doc.getField("paraid").stringValue();
                 float score = scores[i].score;
-                RunFileString tmp = new RunFileString(query, docId, i, score);
+                RunFileString tmp = new RunFileString(queryId, docId, i, score);
                 ret.add(tmp);
             }
 
