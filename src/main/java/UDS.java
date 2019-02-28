@@ -26,38 +26,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 
-class RunFileString{
-    public String queryId;
-    public String paraId;
-    public int rank;
-    public float score;
-    public String methodName;
-    public  String teamName;
-    RunFileString()
-    {
-        queryId = "";
-        paraId = "";
-        rank = 0;
-        score = 0.0f;
-        methodName = "DS-Dirichlet";
-        teamName = "Team 3";
-    }
 
-    RunFileString(String qid, String pid, int r, float s)
-    {
-        queryId = qid;
-        paraId = pid;
-        rank = r;
-        score = s;
-        methodName = "DS-Dirichlet";
-        teamName = "Team 3";
-    }
-
-    public String toString()
-    {
-        return (queryId + " Q0 " + paraId + " " + rank + " " + score + " " + teamName + " " + methodName);
-    }
-}
 
 
 public class UDS {
@@ -129,7 +98,7 @@ public class UDS {
                 Document doc = indexSearcher.doc(scores[i].doc);
                 String docId = doc.getField("paraid").stringValue();
                 float score = scores[i].score;
-                RunFileString tmp = new RunFileString(queryId, docId, i, score);
+                RunFileString tmp = new RunFileString(queryId, docId, i, score, "DS-Dirichlet");
                 ret.add(tmp);
             }
 

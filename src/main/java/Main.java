@@ -56,17 +56,26 @@ public class Main {
         System.out.println("length is: " + pageList.size());
 
 
-        UL page_ul = new UL(pageMap, Max_Results, INDEX_DIRECTORY);
-        UL section_ul = new UL(sectionMap, Max_Results, INDEX_DIRECTORY);
-        writeFile("UnigramLanguageModel-Laplace-Page.run", page_ul.getList());
-        writeFile("UnigrameLanguageModel-Laplace-Section.run", section_ul.getList());
+        // UL
+        UL page_ul = new UL(pageMap, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR,"UnigramLanguageModel-Laplace-Page.run");
+        UL section_ul = new UL(sectionMap, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR, "UnigramLanguageModel-Laplace-Section.run");
 
+        // UDS
         UDS page_uds = new UDS(pageMap, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR, "UnigramLanguageModel-UDS-Page.run");
         UDS section_uds = new UDS(sectionMap,Max_Results, INDEX_DIRECTORY, OUTPUT_DIR, "UnigramLanguageModel-UDS-Section.run");
-        UJM page_ujm = new UJM(pageMap, Max_Results, INDEX_DIRECTORY);
-        UJM section_ujm = new UJM(sectionMap, Max_Results, INDEX_DIRECTORY);
-        writeFile("UnigramLanguageModel-JM-Page.run", page_ujm.getList());
-        writeFile("UnigramLanguageModel-JM-Section.run", section_ujm.getList());
+
+        // UJM
+        UJM page_ujm = new UJM(pageMap, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR, "UnigramLanguageModel-UJM-Page.run");
+        UJM section_ujm = new UJM(sectionMap, Max_Results, INDEX_DIRECTORY, OUTPUT_DIR, "UnigramLanguageModel-UJM-Section.run");
+
+
+
+        // BL
+        System.out.println("Running Biagram Language Model with Laplace Smoothing...");
+        BL page_bl = new BL(INDEX_DIRECTORY, Max_Results, OUTPUT_DIR);
+        page_bl.RankDocWithBigram_Laplace(pageMap, OUTPUT_DIR+"/"+"BigramLanguageModel-Laplace-Page.run");
+        BL section_bl = new BL(INDEX_DIRECTORY, Max_Results, OUTPUT_DIR);
+        section_bl.RankDocWithBigram_Laplace(sectionMap, OUTPUT_DIR+"/"+"BigramLanguageModel-Laplace-Section.run");
 
         System.out.println("QueryExpansion Begin");
         QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);

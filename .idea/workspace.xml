@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="add query terms">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/BL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BigramAnalyzer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RunFileString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UDS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UDS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UL.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -17,15 +20,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="QueryExpansion.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,19 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QueryData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/QueryData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IndexData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/IndexData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
+            <state relative-caret-position="791">
               <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -90,11 +75,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UL.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UL.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/UL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2397">
-              <caret line="166" selection-start-line="166" selection-end-line="166" />
+            <state relative-caret-position="674">
+              <caret line="143" column="61" lean-forward="true" selection-start-line="143" selection-start-column="61" selection-end-line="143" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1869#1870#0" expanded="true" />
+                <element signature="e#1912#1913#0" expanded="true" />
+                <element signature="e#1974#1975#0" expanded="true" />
+                <element signature="e#2017#2018#0" expanded="true" />
+                <element signature="e#5352#5378#0" expanded="true" />
+                <element signature="e#5723#5738#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BigramAnalyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BigramAnalyzer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,14 +105,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UDS.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BL.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4862">
+              <caret line="286" selection-start-line="286" selection-end-line="286" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1713#1714#0" expanded="true" />
+                <element signature="e#1756#1757#0" expanded="true" />
+                <element signature="e#1818#1819#0" expanded="true" />
+                <element signature="e#1861#1862#0" expanded="true" />
+                <element signature="e#2057#2065#0" expanded="true" />
+                <element signature="e#3199#3214#0" expanded="true" />
+                <element signature="e#3905#3912#0" expanded="true" />
+                <element signature="e#5889#5897#0" expanded="true" />
+                <element signature="e#6286#6294#0" expanded="true" />
+                <element signature="e#7025#7033#0" expanded="true" />
+                <element signature="e#8575#8601#0" expanded="true" />
+                <element signature="e#8946#8961#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UDS.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UDS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="166" column="1" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
+            <state relative-caret-position="1054">
+              <caret line="92" column="63" lean-forward="true" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunFileString.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/RunFileString.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -117,8 +153,8 @@
       <file leaf-file-name="UJM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UJM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="90" column="88" selection-start-line="90" selection-start-column="75" selection-end-line="90" selection-end-column="88" />
+            <state relative-caret-position="663">
+              <caret line="90" column="80" lean-forward="true" selection-start-line="90" selection-start-column="80" selection-end-line="90" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,7 +203,6 @@
         <option value="$PROJECT_DIR$/src/main/java/QueryData.java" />
         <option value="$PROJECT_DIR$/src/main/java/SearchData.java" />
         <option value="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UL.java" />
         <option value="$PROJECT_DIR$/src/main/java/UJM.java" />
         <option value="$PROJECT_DIR$/src/main/java/main.java" />
         <option value="$PROJECT_DIR$/src/main/java/tmp.java" />
@@ -175,6 +210,10 @@
         <option value="$PROJECT_DIR$/src/main/java/QueryExpansion.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/UDS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/RunFileString.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BigramAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BL.java" />
       </list>
     </option>
   </component>
@@ -202,8 +241,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
@@ -239,14 +277,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DataScienceSubmission1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DataScienceSubmission1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="UDS.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -486,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551156930446</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix some bugs in UDS.java">
+      <created>1551303326308</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1551303326308</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -499,13 +536,13 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.039387308" />
+      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.34237996" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34968686" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.11584158" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.030634573" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1487965" />
       <window_info id="Learn" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -534,30 +571,10 @@
     <MESSAGE value="add some modifications" />
     <MESSAGE value="debug" />
     <MESSAGE value="add query terms" />
-    <option name="LAST_COMMIT_MESSAGE" value="add query terms" />
+    <MESSAGE value="fix some bugs in UDS.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some bugs in UDS.java" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SearchData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="94" column="13" lean-forward="true" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Tmp.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml" />
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -627,6 +644,12 @@
           <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1869#1870#0" expanded="true" />
+            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2017#2018#0" expanded="true" />
+            <element signature="e#5352#5378#0" expanded="true" />
+            <element signature="e#5723#5738#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -734,6 +757,12 @@
           <caret line="166" selection-start-line="166" selection-end-line="166" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1869#1870#0" expanded="true" />
+            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2017#2018#0" expanded="true" />
+            <element signature="e#5352#5378#0" expanded="true" />
+            <element signature="e#5723#5738#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -821,9 +850,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SearchData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/IndexData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
+        <state relative-caret-position="791">
           <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -833,8 +869,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UJM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="90" column="88" selection-start-line="90" selection-start-column="75" selection-end-line="90" selection-end-column="88" />
+        <state relative-caret-position="663">
+          <caret line="90" column="80" lean-forward="true" selection-start-line="90" selection-start-column="80" selection-end-line="90" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RunFileString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BigramAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4862">
+          <caret line="286" selection-start-line="286" selection-end-line="286" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1713#1714#0" expanded="true" />
+            <element signature="e#1756#1757#0" expanded="true" />
+            <element signature="e#1818#1819#0" expanded="true" />
+            <element signature="e#1861#1862#0" expanded="true" />
+            <element signature="e#2057#2065#0" expanded="true" />
+            <element signature="e#3199#3214#0" expanded="true" />
+            <element signature="e#3905#3912#0" expanded="true" />
+            <element signature="e#5889#5897#0" expanded="true" />
+            <element signature="e#6286#6294#0" expanded="true" />
+            <element signature="e#7025#7033#0" expanded="true" />
+            <element signature="e#8575#8601#0" expanded="true" />
+            <element signature="e#8946#8961#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UDS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="92" column="63" lean-forward="true" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -843,27 +928,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
+        <state relative-caret-position="674">
+          <caret line="143" column="61" lean-forward="true" selection-start-line="143" selection-start-column="61" selection-end-line="143" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SearchData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="81" column="26" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UDS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="166" column="1" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1869#1870#0" expanded="true" />
+            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2017#2018#0" expanded="true" />
+            <element signature="e#5352#5378#0" expanded="true" />
+            <element signature="e#5723#5738#0" expanded="true" />
           </folding>
         </state>
       </provider>
