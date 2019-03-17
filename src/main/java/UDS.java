@@ -23,47 +23,17 @@ import java.io.IOException;
 import java.lang.annotation.Documented;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Map;
 
 
-class RunFileString{
-    public String queryId;
-    public String paraId;
-    public int rank;
-    public float score;
-    public String methodName;
-    public  String teamName;
-    RunFileString()
-    {
-        queryId = "";
-        paraId = "";
-        rank = 0;
-        score = 0.0f;
-        methodName = "DS-Dirichlet";
-        teamName = "Team 3";
-    }
 
-    RunFileString(String qid, String pid, int r, float s)
-    {
-        queryId = qid;
-        paraId = pid;
-        rank = r;
-        score = s;
-        methodName = "DS-Dirichlet";
-        teamName = "Team 3";
-    }
-
-    public String toString()
-    {
-        return (queryId + " Q0 " + paraId + " " + rank + " " + score + " " + teamName + " " + methodName);
-    }
-}
 
 
 public class UDS {
     private static String INDEX_DIR;
     private static String OUTPUT_PATH;
     //public static String PARAGRAPH = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-paragraphs.cbor";
-    private  static String output = "UnigramLanguageModel-uds.run";
+    private  static String output = "";
     private int resultsNum;
 
     // returns IndexReader
@@ -88,17 +58,19 @@ public class UDS {
         return similarity;
     }
 
-    public UDS(ArrayList<Data.Page> pageList, int resultsNum, String indexPath, String outputPath)
+    public UDS(Map<String, String> queriesStr, int resultsNum, String indexPath, String outputPath, String outputName)
     {
         INDEX_DIR = indexPath;
         OUTPUT_PATH = outputPath;
         this.resultsNum = resultsNum;
+        output = outputName;
         try{
             ArrayList<RunFileString> results = new ArrayList<>();
-            for(Data.Page page: pageList)
+            for(Map.Entry<String,String> entry : queriesStr.entrySet())
             {
-                String queryStr = page.getPageId();
-                ArrayList<RunFileString> res = getRanked(queryStr);
+                String queryStr = entry.getValue();
+                String queryId = entry.getKey();
+                ArrayList<RunFileString> res = getRanked(queryStr, queryId);
                 results.addAll(res);
             }
             writeArrayToFile(results);
@@ -108,23 +80,25 @@ public class UDS {
         }
     }
 
-    private ArrayList<RunFileString> getRanked(String query) throws IOException{
+    private ArrayList<RunFileString> getRanked(String queryStr, String queryId) throws IOException{
         IndexSearcher indexSearcher = new IndexSearcher(getIndexReader(INDEX_DIR));
         indexSearcher.setSimilarity(getSimilarity());
 
         QueryParser parser = new QueryParser("content", new EnglishAnalyzer());
         ArrayList<RunFileString> ret = new ArrayList<>();
 
+
         try{
-            Query q = parser.parse(query);
+
+            Query q = parser.parse(QueryParser.escape(queryStr));
             TopDocs topDocs = indexSearcher.search(q, resultsNum);
             ScoreDoc[] scores = topDocs.scoreDocs;
             for(int i = 0; i < scores.length; i++)
             {
                 Document doc = indexSearcher.doc(scores[i].doc);
-                String docId = doc.get("paraid");
+                String docId = doc.getField("paraid").stringValue();
                 float score = scores[i].score;
-                RunFileString tmp = new RunFileString(query, docId, i, score);
+                RunFileString tmp = new RunFileString(queryId, docId, i, score, "DS-Dirichlet");
                 ret.add(tmp);
             }
 
