@@ -36,6 +36,11 @@ public class QueryExpansion {
 
     }
 
+    public QueryExpansion()
+    {
+
+    }
+
 
 
     public void runPage() throws IOException, ParseException {
@@ -137,6 +142,7 @@ public class QueryExpansion {
             for (String termStr : unigram_list){
                 //tf
                 int tf_w = getFreq(termStr, unigram_list);
+                //wrong length, document length
                 int tf_list = scoreDocs.length;
                 float term_score = p * ((float) tf_w / tf_list);
                 if (term_map.keySet().contains(termStr)) {
@@ -221,7 +227,7 @@ public class QueryExpansion {
 
     private  List<String> analyze(String inputStr) throws IOException{
         List<String> strList = new ArrayList<>();
-
+        //double check with the token
         Analyzer test = new EnglishAnalyzer(getStopWordSet());
 
         TokenStream tokenizer = test.tokenStream("content", inputStr);

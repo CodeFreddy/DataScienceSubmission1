@@ -16,6 +16,7 @@ import org.apache.lucene.store.FSDirectory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class IndexData {
 //    static final private String INDEX_DIRECTORY = "index";
@@ -61,6 +62,9 @@ public class IndexData {
         Document doc = new Document();
         doc.add(new StringField("paraid", paragraph.getParaId(), Field.Store.YES));//id
         doc.add(new TextField("content", paragraph.getTextOnly(), Field.Store.YES));//body
+        // Create bigram index field
+        HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
+        doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
         return doc;
     }
 }

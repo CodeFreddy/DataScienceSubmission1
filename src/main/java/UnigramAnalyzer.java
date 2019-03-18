@@ -1,16 +1,25 @@
 package main.java;
 
-import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.LowerCaseFilter;
-import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.Tokenizer;
+import org.apache.lucene.analysis.*;
 import org.apache.lucene.analysis.standard.StandardTokenizer;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class UnigramAnalyzer extends Analyzer {
     @Override
     protected TokenStreamComponents createComponents(String filedName) {
         Tokenizer source = new StandardTokenizer();
+        QueryExpansion q = new QueryExpansion();
+        CharArraySet stopWords = q.getStopWordSet();
+
         TokenStream filter = new LowerCaseFilter(source);
-        return new TokenStreamComponents(source, filter);
+        TokenStream filter2 = new StopFilter(filter, stopWords);
+        return new TokenStreamComponents(source, filter2);
     }
+
+
 }
