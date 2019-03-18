@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Main {
-    static private String INDEX_DIRECTORY = "C:\\CS953\\DataScienceSubmission1\\index";
+    static private String INDEX_DIRECTORY = "/Users/xin/Documents/19Spring/DS/index";
     static private String OUTPUT_DIR = "C:\\CS953\\DataScienceSubmission1\\output";
     static final private int Max_Results = 100;
 
@@ -23,7 +23,7 @@ public class Main {
 
         //String queryPath = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-outlines.cbor";
 
-        String dataPath = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-paragraphs.cbor";
+        String dataPath = "/Users/xin/Documents/19Spring/DS/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
 
 
@@ -34,6 +34,7 @@ public class Main {
         //OUTPUT_DIR = args[2];
 
         indexer = new IndexData(INDEX_DIRECTORY, dataPath);
+        indexer.reIndex();
         /*
         QueryData queryData = new QueryData(queryPath);
 //

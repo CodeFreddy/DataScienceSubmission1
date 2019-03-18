@@ -8,19 +8,27 @@ import org.apache.http.impl.client.HttpClients;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.URLEncoder;
 
 
 public class SpotLight {
 
-
-    private static String spotLightUrl = "http://model.dbpedia-spotlight.org/en/annotate?";
+    private static String spotLightUrl = "http://api.dbpedia-spotlight.org/en/annotate?";
 
     public static String getRelatedJson(String text) throws Exception{
-        text = text.replaceAll("[^a-zA-Z0-9%]"," ");
 
-        String buildUrl = spotLightUrl+"text="+text.replace(" ","%20")+"&confidence=0.5";
+
+
+        //text = text.replaceAll("[^a-zA-Z0-9%]"," ");
+        String encoderString = URLEncoder.encode(text, "utf-8");
+
+        encoderString = encoderString.replace("+","%20");
+        //System.out.println(encoderString);
+        //String buildUrl = spotLightUrl+"text="+text.replace(" ","%20")+"&confidence=0.5";
+        String buildUrl = spotLightUrl+"text="+encoderString+"&confidence=0.5";
+
         String response = get(buildUrl);
-
+//        System.out.println(buildUrl);
         response = response.replace("\"@","\"");
         return response;
     }

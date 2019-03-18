@@ -17,12 +17,11 @@ import org.apache.lucene.store.FSDirectory;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class EntityFinder {
 
-    public static String getEntity(String queryStr, String indexPath){
+    public  static String getEntity(String queryStr, String indexPath){
         String  result = "";
 
         try {
@@ -39,10 +38,10 @@ public class EntityFinder {
         return result;
     }
 
-
+    public  static Map<String,Integer> reTryMap = new HashMap<>();
 
     //not so clear with the filed and parser
-    public static String getEntity(String queryStr, IndexSearcher searcher) throws IOException {
+    public  static String getEntity(String queryStr, IndexSearcher searcher) throws IOException {
         String result = "";
 
         BooleanQuery.Builder queryBuilder = new BooleanQuery.Builder();
@@ -76,16 +75,35 @@ public class EntityFinder {
 
     }
 
-    public static List<Entity> getRelatedEntity(String content) throws Exception {
+    public  static List<Entity> getRelatedEntity(String content) throws Exception  {
         List<Entity> list = new ArrayList<>();
-        String jsonStr = SpotLight.getRelatedJson(content);
-        Gson gson = new GsonBuilder().create();
-        JsonParser jsonParser = new JsonParser();
+        int i = 1;
 
-        JsonObject jsonObject = (JsonObject) jsonParser.parse(jsonStr);
+            String jsonStr = SpotLight.getRelatedJson(content);
+//            System.out.println(jsonStr);
 
-        Type listType = new TypeToken<List<Entity>>(){}.getType();
-        list = gson.fromJson(jsonObject.get("Resources"),listType);
-        return  list;
+            Gson gson = new GsonBuilder().create();
+            JsonParser jsonParser = new JsonParser();
+
+            JsonObject jsonObject = (JsonObject) jsonParser.parse(jsonStr);
+
+            Type listType = new TypeToken<List<Entity>>() {
+            }.getType();
+
+            list = gson.fromJson(jsonObject.get("Resources"), listType);
+
+
+
+//        if (list != null){
+//            for (Entity e : list){
+//                System.out.println(e.getURI());
+//                String uri = e.getURI();
+//
+//                uri = uri.substring(uri.lastIndexOf("/")+1);
+//                System.out.println(uri);
+//            }
+//        }
+
+        return list;
     }
 }
