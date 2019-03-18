@@ -16,6 +16,7 @@ public class SpotLight {
     private static String spotLightUrl = "http://model.dbpedia-spotlight.org/en/annotate?";
 
     public static String getRelatedJson(String text) throws Exception{
+        text = text.replaceAll("[^a-zA-Z0-9%]"," ");
 
         String buildUrl = spotLightUrl+"text="+text.replace(" ","%20")+"&confidence=0.5";
         String response = get(buildUrl);

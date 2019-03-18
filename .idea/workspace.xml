@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="Add spotlight to index">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EntityLinking/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityLinking/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IndexData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IndexData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/DocResults.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/IndexData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/QueryData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/RunFileString.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/SearchData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/UDS$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/UDS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/UJM$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/UJM.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/UL$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/UL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/UnigramAnalyzer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,33 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="60" column="41" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#expandQueryByRocchio#1;class#QueryExpansion#0" />
-                <element signature="method#adjust#0;class#QueryExpansion#0" />
-                <element signature="method#merge#0;class#QueryExpansion#0" />
-                <element signature="method#combine#0;class#QueryExpansion#0" />
-                <element signature="method#find#0;class#QueryExpansion#0" />
-                <element signature="method#setBoost#1;class#QueryExpansion#0" />
-                <element signature="method#getIDF#0;class#QueryExpansion#0" />
-                <element signature="method#setBoost#2;class#QueryExpansion#0" />
-                <element signature="method#getDocs#0;class#QueryExpansion#0" />
-                <element signature="method#getDocsTerms#0;class#QueryExpansion#0" />
-              </folding>
+            <state relative-caret-position="437">
+              <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -78,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
+            <state relative-caret-position="731">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,10 +49,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="259">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -236,6 +206,7 @@
         <option value="$PROJECT_DIR$/src/main/java/EntityLinking/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/java/IndexData.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java" />
       </list>
     </option>
   </component>
@@ -307,7 +278,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552881416474" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552883349326" />
     <property name="last_opened_file_path" value="C:/CS853/programmingAssignment4Group7" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -529,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551385105007</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add spotlight to index">
+      <created>1552881518488</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1552881518489</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -592,7 +570,8 @@
     <MESSAGE value="add query terms" />
     <MESSAGE value="fix some bugs in UDS.java" />
     <MESSAGE value="rewrite UL.java, UJM.data and fix some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewrite UL.java, UJM.data and fix some bugs" />
+    <MESSAGE value="Add spotlight to index" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add spotlight to index" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -626,13 +605,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getScoreRank#0;class#QueryTerms#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -772,16 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -819,13 +781,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="43" column="47" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
+        <state relative-caret-position="731">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -836,17 +819,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryData.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="43" column="47" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        <state relative-caret-position="259">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
