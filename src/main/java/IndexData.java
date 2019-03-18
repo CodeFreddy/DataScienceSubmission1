@@ -69,13 +69,13 @@ public class IndexData {
         HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
         doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
 
-        List<Entity> linkedEntity = getLinkedEntity(paragraph.getTextOnly());
-
-        for (Entity entity : linkedEntity ){
-            String e = entity.getURI().substring(entity.getURI().lastIndexOf("/")+1);
-
-            doc.add(new StringField("spotlight",e,Field.Store.YES));
-        }
+//        List<Entity> linkedEntity = getLinkedEntity(paragraph.getTextOnly());
+//
+//        for (Entity entity : linkedEntity ){
+//            String e = entity.getURI().substring(entity.getURI().lastIndexOf("/")+1);
+//
+//            doc.add(new StringField("spotlight",e,Field.Store.YES));
+//        }
         return doc;
     }
 
