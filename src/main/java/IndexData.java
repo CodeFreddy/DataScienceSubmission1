@@ -3,6 +3,8 @@ package main.java;
 
 import edu.unh.cs.treccar_v2.Data;
 import edu.unh.cs.treccar_v2.read_data.DeserializeData;
+import main.java.EntityLinking.Entity;
+import main.java.EntityLinking.EntityFinder;
 import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -17,6 +19,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 public class IndexData {
 //    static final private String INDEX_DIRECTORY = "index";
@@ -25,7 +28,7 @@ public class IndexData {
 
 
     //INDEX_DIRECTORY is the path of index, filepath is the directory of corpus
-    public IndexData(String INDEX_DIRECTORY,String filePath) throws IOException {
+    public IndexData(String INDEX_DIRECTORY,String filePath) throws Exception {
 
         //change to Eng analyzer
         Directory indexDir = FSDirectory.open((new File(INDEX_DIRECTORY)).toPath());
@@ -57,7 +60,7 @@ public class IndexData {
         indexWriter.close();
     }
 
-    public static Document convertToLuceneDoc(Data.Paragraph paragraph)
+    public static Document convertToLuceneDoc (Data.Paragraph paragraph) throws Exception
     {
         Document doc = new Document();
         doc.add(new StringField("paraid", paragraph.getParaId(), Field.Store.YES));//id
@@ -65,6 +68,18 @@ public class IndexData {
         // Create bigram index field
         HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
         doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
+
+        List<Entity> linkedEntity = getLinkedEntity(paragraph.getTextOnly());
+
+        for (Entity entity : linkedEntity ){
+            String e = entity.getURI().substring(entity.getURI().lastIndexOf("/")+1);
+
+            doc.add(new StringField("spotlight",e,Field.Store.YES));
+        }
         return doc;
+    }
+
+    public static List<Entity> getLinkedEntity(String query) throws Exception {
+        return EntityFinder.getRelatedEntity(query);
     }
 }

@@ -4,7 +4,7 @@ public class Entity {
 
 
 
-    private String URL;
+    private String URI;
     private int support;
     private String types;
     private String surfaceForm;//Name
@@ -13,12 +13,12 @@ public class Entity {
     private float percentageOfSecondRank;
 
 
-    public String getURL(){
-        return URL;
+    public String getURI(){
+        return URI;
     }
 
-    public void setURL(String URL){
-        this.URL = URL;
+    public void setURI(String URI){
+        this.URI = URI;
     }
 
     public int getSupport(){

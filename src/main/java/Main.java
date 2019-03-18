@@ -18,10 +18,10 @@ public class Main {
 
     static IndexData indexer;
 
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws Exception,IOException, ParseException {
         System.setProperty("file.encoding", "UTF-8");
 
-        String queryPath = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-outlines.cbor";
+        //String queryPath = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-outlines.cbor";
 
         String dataPath = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-paragraphs.cbor";
 
@@ -29,11 +29,12 @@ public class Main {
 
 
         INDEX_DIRECTORY = args[0];
-        queryPath = args[1];
-        //dataPath = args[2];
-        OUTPUT_DIR = args[2];
+        //queryPath = args[1];
+        dataPath = args[1];
+        //OUTPUT_DIR = args[2];
 
-        //indexer = new IndexData(INDEX_DIRECTORY, dataPath);
+        indexer = new IndexData(INDEX_DIRECTORY, dataPath);
+        /*
         QueryData queryData = new QueryData(queryPath);
 //
         Map<String,String> pageMap = queryData.getAllPageQueries();
@@ -82,7 +83,7 @@ public class Main {
 
         qe.runPage();
         qe.runSection();
-
+        */
         System.out.println("Finished");
     }
 
