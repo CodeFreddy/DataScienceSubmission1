@@ -82,10 +82,12 @@
                 <version> 3.1.0 </version>
                 <configuration>
                     <!-- get all project dependencies -->
+
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                     <!-- MainClass in mainfest make a executable jar -->
+
                     <archive>
                         <manifest>
                             <mainClass> main.java.Main </mainClass>

@@ -100,12 +100,6 @@ public class IndexData {
             }
         }
 
-
-        // Create bigram index field
-        HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
-        doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
-
-
         return doc;
     }
 
@@ -139,9 +133,6 @@ public class IndexData {
                     }
                 }
 
-                // Create bigram index field
-                HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(p.getTextOnly());
-                doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
 
                 indexWriter.addDocument(doc);
 
