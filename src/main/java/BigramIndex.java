@@ -81,7 +81,7 @@ public class BigramIndex {
         return str_map;
     }
 
-    private static ArrayList<String> analyzeByBigram(String inputStr) throws IOException {
+    protected static ArrayList<String> analyzeByBigram(String inputStr) throws IOException {
         ArrayList<String> strList = new ArrayList<String>();
         Analyzer analyzer = new BigramAnalyzer();
         TokenStream tokenizer = analyzer.tokenStream("content", inputStr);
