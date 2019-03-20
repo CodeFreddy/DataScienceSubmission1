@@ -25,6 +25,7 @@ public class Bigram_variation {
         System.out.println("Retriving results for " + queriesStr.size() + " queries...");
         ArrayList<String> runFileStr = new ArrayList<>();
         IndexSearcher searcher = null;
+        int duplicate = 0;
         try {
             searcher = new IndexSearcher(
                     DirectoryReader.open(FSDirectory.open((new File(indeDir).toPath()))));
@@ -46,6 +47,11 @@ public class Bigram_variation {
             // Create a HashMap to compute score for each document.
             // <documentId,score>
             HashMap<String, Float> score_map = new HashMap<String, Float>();
+
+            if (bigram_list.isEmpty()) {
+                System.out.println(queryStr + " ===>Single Word query found.");
+                bigram_list.add(queryStr);
+            }
 
             // Query against bigram field with BM25
             for (String term : bigram_list) {
@@ -92,7 +98,12 @@ public class Bigram_variation {
             for (Map.Entry<String, Float> entry1 : BigramIndex.getTopValuesInMap(score_map, max_results).entrySet()) {
                 String runStr = "enwiki:" + queryId + " Q0 " + entry1.getKey() + " " + rank + " " + entry1.getValue() + " FreqBigram";
                 rank++;
-                runFileStr.add(runStr);
+                if (runFileStr.contains(runStr)) {
+                    duplicate++;
+
+                } else {
+                    runFileStr.add(runStr);
+                }
 
             }
 
