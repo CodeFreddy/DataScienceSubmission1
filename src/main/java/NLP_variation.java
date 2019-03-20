@@ -58,6 +58,7 @@ public class NLP_variation {
             HashMap<Document, Float> scoredDocs = new HashMap<>();
             TopDocs init_tops = searcher.search(q, max_result);
             ScoreDoc[] scoreDoc = init_tops.scoreDocs;
+            List<String> redoList = new ArrayList<>();
             for (int i = 0; i < scoreDoc.length; i++) {
                 ScoreDoc score = scoreDoc[i];
                 Document doc = searcher.doc(score.doc);
@@ -68,7 +69,32 @@ public class NLP_variation {
                 // Arrays.asList(doc.getValues("spotlight"));
 
                 NLP_Document.Paragraph paraObj = NLPpipeline.convertToNL_DocumentWithOpenIE(paraContent);
-                ArrayList<Entity> spotLight_entities = EntityFinder.getRelatedEntity(queryStr);
+                List<Entity> spotLight_entities = null;
+
+                try {
+                    spotLight_entities = EntityFinder.getRelatedEntity(queryStr);
+                }catch (Exception e)
+                {
+                    System.err.println("Can't get json " + e.getMessage());
+                    redoList.add(queryStr);
+                }
+
+                System.out.println("Start to redo...");
+                while(redoList.size() != 0)
+                {
+
+                    System.out.println("redolist size: " + redoList.size());
+                    for(int j = redoList.size()-1; j>=0; j--)
+                    {
+                        try {
+                            spotLight_entities = EntityFinder.getRelatedEntity(redoList.get(j));
+                            redoList.remove(j);
+                        }catch (Exception e)
+                        {
+                            System.err.println("Can't get json: "+ e.getMessage());
+                        }
+                    }
+                }
                 List<String> entities = new ArrayList<String>();
                 // Reduce the boots factor, when spotlight can't find any
                 // entities.

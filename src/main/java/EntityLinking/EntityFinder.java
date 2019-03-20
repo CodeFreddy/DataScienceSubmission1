@@ -75,14 +75,14 @@ public class EntityFinder {
 
     }
 
-    public  static ArrayList<Entity> getRelatedEntity(String content) throws Exception  {
-        ArrayList<Entity> list = new ArrayList<>();
+    public  static List<Entity> getRelatedEntity(String content) throws Exception  {
+        List<Entity> list = new ArrayList<>();
         int i = 1;
 
             String jsonStr = SpotLight.getRelatedJson(content);
 //            System.out.println(jsonStr);
 
-            Gson gson = new GsonBuilder().create();
+            Gson gson = new GsonBuilder().setLenient().create();
             JsonParser jsonParser = new JsonParser();
 
             JsonObject jsonObject = (JsonObject) jsonParser.parse(jsonStr);
