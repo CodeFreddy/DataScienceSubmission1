@@ -4,6 +4,7 @@ package main.java.EntityLinking;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
 import java.io.BufferedReader;
@@ -53,6 +54,7 @@ public class SpotLight {
             res.append(line);
         }
 
+        ((CloseableHttpClient) client).close();
         return res.toString();
     }
 }
