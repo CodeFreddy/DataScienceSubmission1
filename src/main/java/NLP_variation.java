@@ -68,7 +68,7 @@ public class NLP_variation {
                 // Arrays.asList(doc.getValues("spotlight"));
 
                 NLP_Document.Paragraph paraObj = NLPpipeline.convertToNL_DocumentWithOpenIE(paraContent);
-                ArrayList<Entity> spotLight_entities = new ArrayList<>(EntityFinder.getRelatedEntity(queryStr));
+                ArrayList<Entity> spotLight_entities = EntityFinder.getRelatedEntity(queryStr);
                 List<String> entities = new ArrayList<String>();
                 // Reduce the boots factor, when spotlight can't find any
                 // entities.
