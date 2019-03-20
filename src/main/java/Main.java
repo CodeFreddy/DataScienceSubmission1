@@ -35,7 +35,7 @@ public class Main {
         //OUTPUT_DIR = args[2];
 
         indexer = new IndexData(INDEX_DIRECTORY, dataPath);
-        indexer.reIndex();
+        //indexer.reIndex();
         /*
         QueryData queryData = new QueryData(queryPath);
 //
