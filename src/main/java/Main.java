@@ -12,28 +12,31 @@ import java.util.List;
 import java.util.Map;
 
 public class Main {
-    static private String INDEX_DIRECTORY = "C:\\CS953\\DataScienceSubmission1\\index";
+    static private String INDEX_DIRECTORY = "/Users/xin/Documents/19Spring/DS/index";
     static private String OUTPUT_DIR = "C:\\CS953\\DataScienceSubmission1\\output";
     static final private int Max_Results = 100;
 
     static IndexData indexer;
 
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws Exception,IOException, ParseException {
         System.setProperty("file.encoding", "UTF-8");
 
-        String queryPath = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-outlines.cbor";
+        //String queryPath = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-outlines.cbor";
 
-        String dataPath = "C:\\CS853\\programAssignment3\\test200-train\\train.pages.cbor-paragraphs.cbor";
+
+        String dataPath = "/Users/xin/Documents/19Spring/DS/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
 
 
 
         INDEX_DIRECTORY = args[0];
-        queryPath = args[1];
-        //dataPath = args[2];
-        OUTPUT_DIR = args[2];
+        //queryPath = args[1];
+        dataPath = args[1];
+        //OUTPUT_DIR = args[2];
 
-        //indexer = new IndexData(INDEX_DIRECTORY, dataPath);
+        indexer = new IndexData(INDEX_DIRECTORY, dataPath);
+        indexer.reIndex();
+        /*
         QueryData queryData = new QueryData(queryPath);
 //
         Map<String,String> pageMap = queryData.getAllPageQueries();
@@ -82,7 +85,7 @@ public class Main {
 
         qe.runPage();
         qe.runSection();
-
+        */
         System.out.println("Finished");
     }
 
