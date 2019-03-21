@@ -144,7 +144,15 @@ public class QueryExpansionLDA {
 
     private Query setBoost(String originalQuery, List<String> expanded_list) throws ParseException {
         if (!expanded_list.isEmpty()) {
-            String rm_str = String.join(" ", expanded_list);
+
+            List<String> tmp = new ArrayList<>();
+
+            for (int i = 0; i < 5; i++){
+                tmp.add(expanded_list.get(i));
+            }
+
+
+            String rm_str = String.join(" ", tmp);
             Query q = parser.parse(QueryParser.escape(originalQuery) + "^1.5" + QueryParser.escape(rm_str) + "^0.75");
             return q;
         } else {
