@@ -80,20 +80,19 @@ public class NLP_variation {
                 }
 
                 System.out.println("Start to redo...");
-                while(redoList.size() != 0)
+                int times = 5;
+                while(times >= 0)
                 {
-
+                    times--;
                     System.out.println("redolist size: " + redoList.size());
-                    for(int j = redoList.size()-1; j>=0; j--)
-                    {
                         try {
-                            spotLight_entities = EntityFinder.getRelatedEntity(redoList.get(j));
-                            redoList.remove(j);
+                            spotLight_entities = EntityFinder.getRelatedEntity(redoList.get(0));
+                            redoList.remove(0);
                         }catch (Exception e)
                         {
                             System.err.println("Can't get json: "+ e.getMessage());
                         }
-                    }
+
                 }
                 List<String> entities = new ArrayList<String>();
                 // Reduce the boots factor, when spotlight can't find any
