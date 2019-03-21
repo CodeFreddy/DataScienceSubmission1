@@ -62,8 +62,10 @@ public class QueryExpansionQueryEntity {
         parser = new QueryParser("content", new StandardAnalyzer());
 
         Set<String> runFileStr = new HashSet<>();
+        int count = 0;
         for (Map.Entry<String, String> entry:map.entrySet()){
             String queryStr = entry.getValue();
+            System.out.println(count++);
             String queryId = entry.getKey();
             Query q = parser.parse(QueryParser.escape(queryStr));
             TopDocs tops = searcher.search(q, max_result);
