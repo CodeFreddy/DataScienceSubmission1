@@ -75,29 +75,31 @@ public class IndexData {
         Document doc = new Document();
         doc.add(new StringField("paraid", paragraph.getParaId(), Field.Store.YES));//id
         doc.add(new TextField("content", paragraph.getTextOnly(), Field.Store.YES));//body
+        HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
+        doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
 
         List<Entity> linkedEntity = new ArrayList<>();
 
         //System.out.println("query is:"+paragraph.getTextOnly());
 
-        try{
-            linkedEntity = entityFinder.getRelatedEntity(paragraph.getTextOnly());
-
-        }catch (Exception e){
-            System.err.println("cannot get json response from spotlight");
-            reIndex.add(paragraph);
-            linkedEntity = null;
-            return null;
-        }
-
-        if (linkedEntity !=null    ){
-            //System.out.println("size: "+linkedEntity.size());
-            for (Entity entity : linkedEntity ){
-                String e = entity.getURI().substring(entity.getURI().lastIndexOf("/")+1);
-
-                doc.add(new StringField("spotlight",e,Field.Store.YES));
-            }
-        }
+//        try{
+//            linkedEntity = entityFinder.getRelatedEntity(paragraph.getTextOnly());
+//
+//        }catch (Exception e){
+//            System.err.println("cannot get json response from spotlight");
+//            reIndex.add(paragraph);
+//            linkedEntity = null;
+//            return null;
+//        }
+//
+//        if (linkedEntity !=null    ){
+//            //System.out.println("size: "+linkedEntity.size());
+//            for (Entity entity : linkedEntity ){
+//                String e = entity.getURI().substring(entity.getURI().lastIndexOf("/")+1);
+//
+//                doc.add(new StringField("spotlight",e,Field.Store.YES));
+//            }
+//        }
 
 //        HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
 //        doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));

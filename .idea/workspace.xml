@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="fix illegel char bug in index from spotlight">
-      <change afterPath="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansionLDA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jgibblda/InferencerWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jgibblda/Topic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansionDocEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryExpansionQueryEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QueryTerms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UnigramAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UnigramAnalyzer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,8 +21,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2109">
-              <caret line="122" column="29" selection-start-line="120" selection-start-column="9" selection-end-line="122" selection-end-column="29" />
+            <state relative-caret-position="264">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansionQueryEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="593">
+              <caret line="58" column="76" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="76" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4803#4829#0" expanded="true" />
+                <element signature="e#5179#5194#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansionDocEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="574">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,49 +54,50 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansionLDA.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="95" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="2071">
+              <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#expandQueryByRocchio#1;class#QueryExpansion#0" />
+                <element signature="method#adjust#0;class#QueryExpansion#0" />
+                <element signature="method#merge#0;class#QueryExpansion#0" />
+                <element signature="method#combine#0;class#QueryExpansion#0" />
+                <element signature="method#find#0;class#QueryExpansion#0" />
+                <element signature="method#setBoost#1;class#QueryExpansion#0" />
+                <element signature="method#getIDF#0;class#QueryExpansion#0" />
+                <element signature="method#setBoost#2;class#QueryExpansion#0" />
+                <element signature="method#getDocs#0;class#QueryExpansion#0" />
+                <element signature="method#getDocsTerms#0;class#QueryExpansion#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Topic.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+            <state relative-caret-position="452">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Inferencer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SearchData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDADataset.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1261">
-              <caret line="253" column="8" selection-start-line="253" selection-start-column="8" selection-end-line="253" selection-end-column="8" />
+            <state relative-caret-position="1425">
+              <caret line="92" column="54" selection-start-line="92" selection-start-column="46" selection-end-line="92" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/InferencerWrapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-388">
-              <caret line="33" column="22" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="22" />
+            <state relative-caret-position="479">
+              <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,55 +106,54 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Model.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/QueryData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="106" column="27" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
+            <state relative-caret-position="646">
+              <caret line="43" column="47" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/Entity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding>
-                <element signature="e#4015#4016#0" expanded="true" />
-                <element signature="e#4040#4041#0" expanded="true" />
-                <element signature="e#10482#10488#0" expanded="true" />
-                <element signature="e#11254#11844#0" />
-                <element signature="e#11999#12534#0" />
-                <element signature="e#12538#14190#0" />
-                <element signature="e#14194#15959#0" />
-                <element signature="e#15963#16401#0" />
-                <element signature="e#16405#18089#0" />
+                <element signature="e#425#426#0" expanded="true" />
+                <element signature="e#455#456#0" expanded="true" />
+                <element signature="e#497#498#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#567#568#0" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+                <element signature="e#636#637#0" expanded="true" />
+                <element signature="e#670#671#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
+                <element signature="e#741#742#0" expanded="true" />
+                <element signature="e#794#795#0" expanded="true" />
+                <element signature="e#840#841#0" expanded="true" />
+                <element signature="e#870#871#0" expanded="true" />
+                <element signature="e#899#900#0" expanded="true" />
+                <element signature="e#940#941#0" expanded="true" />
+                <element signature="e#976#977#0" expanded="true" />
+                <element signature="e#1017#1018#0" expanded="true" />
+                <element signature="e#1055#1056#0" expanded="true" />
+                <element signature="e#1116#1117#0" expanded="true" />
+                <element signature="e#1170#1171#0" expanded="true" />
+                <element signature="e#1218#1219#0" expanded="true" />
+                <element signature="e#1263#1264#0" expanded="true" />
+                <element signature="e#1437#1438#0" expanded="true" />
+                <element signature="e#1493#1494#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDA.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/IndexData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="56" column="53" lean-forward="true" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Estimator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
-              <folding>
-                <element signature="e#2686#2687#0" expanded="true" />
-                <element signature="e#2701#2702#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDACmdOption.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="46" column="50" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
+            <state relative-caret-position="668">
+              <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -161,6 +174,7 @@
       <find>search</find>
       <find>filePath</find>
       <find>content</find>
+      <find>analyzer</find>
       <find>score</find>
       <find>english</find>
       <find>PriorityQueue</find>
@@ -171,10 +185,6 @@
       <find>linker</find>
       <find>jdk</find>
       <find>java</find>
-      <find>ana</find>
-      <find>termList</find>
-      <find>1.5</find>
-      <find>analyzer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,6 +199,7 @@
         <option value="$PROJECT_DIR$/src/main/java/DocResults.java" />
         <option value="$PROJECT_DIR$/src/main/java/QueryData.java" />
         <option value="$PROJECT_DIR$/src/main/java/SearchData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansion.java" />
         <option value="$PROJECT_DIR$/src/main/java/main.java" />
         <option value="$PROJECT_DIR$/src/main/java/tmp.java" />
         <option value="$PROJECT_DIR$/src/main/java/QueryTerms.java" />
@@ -199,36 +210,16 @@
         <option value="$PROJECT_DIR$/src/main/java/UL.java" />
         <option value="$PROJECT_DIR$/src/main/java/BigramAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/main/java/BigramIndex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/EntityLinking/Entity.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/QueryExpansion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/QueryExpansionDocEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/QueryExpansionQueryEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/IndexData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Pair.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/LDADataset.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Dictionary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Document.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Conversion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Inferencer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Topics.java" />
-        <option value="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryTerms.java" />
         <option value="$PROJECT_DIR$/src/main/java/UnigramAnalyzer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java" />
-        <option value="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansionDocEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EntityLinking/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansionQueryEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/models/model-LDA.others" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Topic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansionLDA.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/LDACmdOption.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/InferencerWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Model.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/Estimator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jgibblda/LDA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/QueryExpansionQueryEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/QueryExpansionDocEntity.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/IndexData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java" />
       </list>
     </option>
   </component>
@@ -288,14 +279,7 @@
               <item name="submission1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jgibblda" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="submission1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="submission1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="QueryExpansion" type="462c0819:PsiDirectoryNode" />
+              <item name="EntityLinking" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -305,7 +289,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553130073528" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553029147899" />
     <property name="last_opened_file_path" value="C:/CS853/programmingAssignment4Group7" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -567,21 +551,7 @@
       <option name="project" value="LOCAL" />
       <updated>1553028716627</updated>
     </task>
-    <task id="LOCAL-00026" summary="fix illegel char bug in index from spotlight">
-      <created>1553029152900</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1553029152900</updated>
-    </task>
-    <task id="LOCAL-00027" summary="fix illegel char bug in index from spotlight">
-      <created>1553104170776</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1553104170776</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -597,7 +567,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49923897" visible="true" weight="0.28675282" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49923897" visible="true" weight="0.24071082" />
       <window_info id="Structure" order="1" sideWeight="0.50076103" side_tool="true" weight="0.22310969" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -608,14 +578,14 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32970297" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32970297" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49946752" visible="true" weight="0.10273973" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49946752" weight="0.16438356" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49946752" weight="0.12970297" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.11584158" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.34950495" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32876712" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32959184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24959612" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -680,6 +650,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/LanguageModel.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion/QueryTerms.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansion.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/tmp.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/QueryTerms.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -689,6 +661,13 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getScoreRank#0;class#QueryTerms#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RunFileString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
@@ -724,6 +703,16 @@
             <element signature="e#1912#1913#0" expanded="true" />
             <element signature="e#1974#1975#0" expanded="true" />
             <element signature="e#2017#2018#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UnigramAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -781,6 +770,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getEntity#0;class#EntityFinder#0" />
+            <element signature="method#getEntity#1;class#EntityFinder#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SearchData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
@@ -792,118 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="43" column="47" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1051">
-          <caret line="94" column="41" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#expandQueryByRocchio#1;class#QueryExpansion#0" />
-            <element signature="method#adjust#0;class#QueryExpansion#0" />
-            <element signature="method#merge#0;class#QueryExpansion#0" />
-            <element signature="method#combine#0;class#QueryExpansion#0" />
-            <element signature="method#find#0;class#QueryExpansion#0" />
-            <element signature="method#setBoost#1;class#QueryExpansion#0" />
-            <element signature="method#getIDF#0;class#QueryExpansion#0" />
-            <element signature="method#setBoost#2;class#QueryExpansion#0" />
-            <element signature="method#getDocs#0;class#QueryExpansion#0" />
-            <element signature="method#getDocsTerms#0;class#QueryExpansion#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansionDocEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-974">
-          <caret line="112" column="5" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansionQueryEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2368">
-          <caret line="142" column="76" selection-start-line="142" selection-start-column="76" selection-end-line="142" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4803#4829#0" expanded="true" />
-            <element signature="e#5179#5194#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RunFileString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="47" column="4" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Dictionary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2022">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Conversion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Topics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UnigramAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion/QueryTerms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="184" column="11" lean-forward="true" selection-start-line="184" selection-start-column="11" selection-end-line="184" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -940,155 +829,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+        <state relative-caret-position="2071">
+          <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#expandQueryByRocchio#1;class#QueryExpansion#0" />
+            <element signature="method#adjust#0;class#QueryExpansion#0" />
+            <element signature="method#merge#0;class#QueryExpansion#0" />
+            <element signature="method#combine#0;class#QueryExpansion#0" />
+            <element signature="method#find#0;class#QueryExpansion#0" />
+            <element signature="method#setBoost#1;class#QueryExpansion#0" />
+            <element signature="method#getIDF#0;class#QueryExpansion#0" />
+            <element signature="method#setBoost#2;class#QueryExpansion#0" />
+            <element signature="method#getDocs#0;class#QueryExpansion#0" />
+            <element signature="method#getDocsTerms#0;class#QueryExpansion#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansionDocEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/IndexData.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="83" column="56" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="56" />
+        <state relative-caret-position="452">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansionDocEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansionQueryEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="64" />
+        <state relative-caret-position="593">
+          <caret line="58" column="76" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4803#4829#0" expanded="true" />
+            <element signature="e#5179#5194#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="68" column="49" selection-start-line="66" selection-start-column="11" selection-end-line="68" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/page-QueryExpansion-Entity.run">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansionQueryEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/model-LDA.others">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2109">
-          <caret line="122" column="29" selection-start-line="120" selection-start-column="9" selection-end-line="122" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="264">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Topic.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/IndexData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        <state relative-caret-position="668">
+          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Inferencer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/SpotLight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDADataset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1261">
-          <caret line="253" column="8" selection-start-line="253" selection-start-column="8" selection-end-line="253" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDACmdOption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="46" column="50" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/QueryExpansion/QueryExpansionLDA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="106" column="27" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
-          <folding>
-            <element signature="e#4015#4016#0" expanded="true" />
-            <element signature="e#4040#4041#0" expanded="true" />
-            <element signature="e#10482#10488#0" expanded="true" />
-            <element signature="e#11254#11844#0" />
-            <element signature="e#11999#12534#0" />
-            <element signature="e#12538#14190#0" />
-            <element signature="e#14194#15959#0" />
-            <element signature="e#15963#16401#0" />
-            <element signature="e#16405#18089#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/Estimator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
-          <folding>
-            <element signature="e#2686#2687#0" expanded="true" />
-            <element signature="e#2701#2702#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/LDA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="56" column="53" lean-forward="true" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jgibblda/InferencerWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-388">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="22" />
+        <state relative-caret-position="479">
+          <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
