@@ -2,7 +2,7 @@ package main.java;
 
 import org.apache.lucene.analysis.*;
 import org.apache.lucene.analysis.standard.StandardTokenizer;
-
+import main.java.QueryExpansion.QueryExpansion;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package main.java;
+package main.java.QueryExpansion;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
@@ -8,7 +8,7 @@ import java.io.StringReader;
 import java.util.*;
 
 public class QueryTerms {
-    private String [] terms = new String[0];
+    private List<String> terms = new ArrayList<>();
     private int [] termFreqs = new int[0];
     private List<String> termList = new ArrayList<>();
     private int id;
@@ -168,6 +168,7 @@ public class QueryTerms {
                     termsMap.put(term,termsMap.get(term)+1);
                 }else{
                     termsMap.put(term,1);
+                    terms.add(term);
                 }
             }
         }
@@ -181,16 +182,16 @@ public class QueryTerms {
         return termFreqs;
     }
 
-    public String[] getTerms() {
+    public List<String> getTerms() {
         return terms;
     }
 
     public int size(){
-        return terms.length;
+        return terms.size();
     }
 
     public int indexOf(String term){
-        int res = Arrays.binarySearch(terms,term);
+        int res = Arrays.binarySearch(terms.toArray(),term);
 
         return res >= 0 ? res : -1;
     }
@@ -209,9 +210,9 @@ public class QueryTerms {
     public final String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append('{');
-        for (int i=0; i<terms.length; i++) {
+        for (int i=0; i<terms.size(); i++) {
             if (i>0) sb.append(", ");
-            sb.append(terms[i]).append('/').append(termFreqs[i]);
+            sb.append(terms.get(i)).append('/').append(termFreqs[i]);
         }
         sb.append('}');
         return sb.toString();

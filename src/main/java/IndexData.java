@@ -54,7 +54,7 @@ public class IndexData {
             Document doc = convertToLuceneDoc(p);
             if (doc != null){
                 indexWriter.addDocument(doc);
-            System.out.println(count++);
+                System.out.println(count++);
 
                 if (count %100 == 0){
                     indexWriter.commit();
@@ -63,11 +63,10 @@ public class IndexData {
 
         }
 
-        int size = entityFinder.reTryMap.size();
-        System.out.println("redo size:" +size);
         System.out.println("=======================");
         System.out.println("Indexing was done");
 //        indexWriter.commit();
+
 
     }
 
@@ -102,11 +101,15 @@ public class IndexData {
 //            }
 //        }
 
+//        HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
+//        doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
+
         return doc;
     }
 
 
     public static void reIndex() throws Exception{
+        System.out.print("start to reindex");
         while (reIndex.size() != 0){
             System.out.println("reIndex.size():"+reIndex.size());
             for (int i = reIndex.size()-1;i >= 0 ; i--){
@@ -134,6 +137,9 @@ public class IndexData {
                         doc.add(new StringField("spotlight",e,Field.Store.YES));
                     }
                 }
+
+//                HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
+//                doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
 
 
                 indexWriter.addDocument(doc);
