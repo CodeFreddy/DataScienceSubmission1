@@ -87,13 +87,15 @@ public class NLP_variation {
                     System.out.println("redolist size: " + redoList.size());
                         try {
                             spotLight_entities = EntityFinder.getRelatedEntity(redoList.get(0));
-                            redoList.remove(0);
+                            //redoList.remove(0);
                         }catch (Exception e)
                         {
                             System.err.println("Can't get json: "+ e.getMessage());
                         }
 
                 }
+                redoList.remove(0);
+
                 List<String> entities = new ArrayList<String>();
                 // Reduce the boots factor, when spotlight can't find any
                 // entities.
