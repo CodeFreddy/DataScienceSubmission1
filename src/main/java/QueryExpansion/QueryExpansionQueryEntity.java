@@ -202,20 +202,20 @@ public class QueryExpansionQueryEntity {
                 if (i ==0) factor = 3;
                 if (i == queryTerms.size() - 1) factor = 2;
 
-//                String EntityAbstr = EntityFinder.getEntity(queryTerm.replace(" ","_").toLowerCase(),INDEX_DIR);
+               String EntityAbstr = EntityFinder.getEntity(queryTerm.replace(" ","_").toLowerCase(),INDEX_DIR);
 
-                if (!queryTerm.isEmpty()){
+                if (!EntityAbstr.isEmpty()){
                     List<Entity> entities = new ArrayList<>();
 
                     try{
-                        entities = EntityFinder.getRelatedEntity(queryTerm);
+                        entities = EntityFinder.getRelatedEntity(EntityAbstr);
                     }catch (Exception e){
                         System.err.println("Exception:" + e.getMessage());
                         redo = true;
 
                         while (redo){
                             try {
-                                entities = EntityFinder.getRelatedEntity(queryTerm);
+                                entities = EntityFinder.getRelatedEntity(EntityAbstr);
                                 redo = false;
                             }catch (Exception ex1){
                                 System.err.println("Exception:" + ex1.getMessage());
