@@ -96,9 +96,9 @@ public class Main {
 //        writeFile("NLP-variation-Section.run", section_run);
 
 
-//        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
 //        qeqe.runPage();
-//        qeqe.runSection();
+        qeqe.runSection();
         System.out.println("Finished");
     }
 
