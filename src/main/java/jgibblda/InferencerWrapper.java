@@ -36,6 +36,8 @@ public class InferencerWrapper {
                 "-savestep" ,"100","-twords", "5","-dir","models",
                 "-dfile", "newdocs.dat"
         };
+
+//        write(input);
         LDA lda = new LDA();
 
         lda.main(arguments);
@@ -46,7 +48,7 @@ public class InferencerWrapper {
     public void write(List<String> input){
         try{
             BufferedWriter out = new BufferedWriter(new FileWriter("models/newdocs.data"));
-            out.write("1");
+            out.write("1\n");
             for (String s: input){
                 out.write(s+" ");
             }
