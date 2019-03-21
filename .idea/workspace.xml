@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NLP_variation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NLP_variation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,8 +21,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+            <state relative-caret-position="1914">
+              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,8 +33,8 @@
       <file leaf-file-name="NLP_variation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/NLP_variation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="88" column="93" selection-start-line="88" selection-start-column="93" selection-end-line="88" selection-end-column="93" />
+            <state relative-caret-position="440">
+              <caret line="88" column="96" selection-start-line="88" selection-start-column="96" selection-end-line="88" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -373,20 +372,6 @@
       <option name="presentableId" value="Default" />
       <updated>1548863499764</updated>
     </task>
-    <task id="LOCAL-00004" summary="update">
-      <created>1549226295309</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1549226295309</updated>
-    </task>
-    <task id="LOCAL-00005" summary="update">
-      <created>1549578213654</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1549578213654</updated>
-    </task>
     <task id="LOCAL-00006" summary="first update">
       <created>1550634207417</created>
       <option name="number" value="00006" />
@@ -716,7 +701,21 @@
       <option name="project" value="LOCAL" />
       <updated>1553152266958</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="fix some bugs in NLP_Variation.java">
+      <created>1553191566551</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1553191566552</updated>
+    </task>
+    <task id="LOCAL-00054" summary="fix some bugs in NLP_Variation.java">
+      <created>1553193099752</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1553193099753</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -777,7 +776,8 @@
     <MESSAGE value="rewrite UL.java, UJM.data and fix some bugs" />
     <MESSAGE value="Add spotlight to index" />
     <MESSAGE value="fix illegel char bug in index from spotlight" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix illegel char bug in index from spotlight" />
+    <MESSAGE value="fix some bugs in NLP_Variation.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some bugs in NLP_Variation.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -1129,8 +1129,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+        <state relative-caret-position="1914">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1139,8 +1139,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NLP_variation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="88" column="93" selection-start-line="88" selection-start-column="93" selection-end-line="88" selection-end-column="93" />
+        <state relative-caret-position="440">
+          <caret line="88" column="96" selection-start-line="88" selection-start-column="96" selection-end-line="88" selection-end-column="96" />
         </state>
       </provider>
     </entry>
