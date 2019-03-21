@@ -129,7 +129,7 @@ public class NLP_variation {
                 Document doc = entry1.getKey();
                 String paraId = doc.getField("paraid").stringValue();
 
-                String runStr = "enwiki:" + queryId + " Q0 " + paraId + " " + rank + " " + entry1.getValue() + " NLP_query_variation";
+                String runStr = queryId + " Q0 " + paraId + " " + rank + " " + entry1.getValue() + " NLP_query_variation";
                 if (runFileStr.contains(runStr)) {
                     duplicate++;
                     // logger.debug("Found duplicate: " + runStr);
