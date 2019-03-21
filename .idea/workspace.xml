@@ -22,8 +22,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="94" selection-start-line="92" selection-end-line="94" />
+            <state relative-caret-position="67">
+              <caret line="92" selection-start-line="92" selection-end-line="93" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -219,7 +219,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -584,7 +584,28 @@
       <option name="project" value="LOCAL" />
       <updated>1553139960398</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fix illegel char bug in index from spotlight">
+      <created>1553140706383</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1553140706383</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix illegel char bug in index from spotlight">
+      <created>1553140744921</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1553140744921</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix illegel char bug in index from spotlight">
+      <created>1553141885757</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1553141885757</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -602,7 +623,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32970297" />
-      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.58246344" />
+      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.29645094" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -1077,8 +1098,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="94" selection-start-line="92" selection-end-line="94" />
+        <state relative-caret-position="67">
+          <caret line="92" selection-start-line="92" selection-end-line="93" selection-end-column="54" />
         </state>
       </provider>
     </entry>
