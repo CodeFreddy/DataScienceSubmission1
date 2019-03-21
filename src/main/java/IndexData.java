@@ -82,27 +82,24 @@ public class IndexData {
 
         //System.out.println("query is:"+paragraph.getTextOnly());
 
-//        try{
-//            linkedEntity = entityFinder.getRelatedEntity(paragraph.getTextOnly());
-//
-//        }catch (Exception e){
-//            System.err.println("cannot get json response from spotlight");
-//            reIndex.add(paragraph);
-//            linkedEntity = null;
-//            return null;
-//        }
-//
-//        if (linkedEntity !=null    ){
-//            //System.out.println("size: "+linkedEntity.size());
-//            for (Entity entity : linkedEntity ){
-//                String e = entity.getURI().substring(entity.getURI().lastIndexOf("/")+1);
-//
-//                doc.add(new StringField("spotlight",e,Field.Store.YES));
-//            }
-//        }
+        try{
+            linkedEntity = entityFinder.getRelatedEntity(paragraph.getTextOnly());
 
-//        HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
-//        doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
+        }catch (Exception e){
+            System.err.println("cannot get json response from spotlight");
+            reIndex.add(paragraph);
+            linkedEntity = null;
+            return null;
+        }
+
+        if (linkedEntity !=null    ){
+            //System.out.println("size: "+linkedEntity.size());
+            for (Entity entity : linkedEntity ){
+                String e = entity.getURI().substring(entity.getURI().lastIndexOf("/")+1);
+
+                doc.add(new StringField("spotlight",e,Field.Store.YES));
+            }
+        }
 
         return doc;
     }
