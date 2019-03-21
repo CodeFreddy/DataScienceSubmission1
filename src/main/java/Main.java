@@ -1,6 +1,7 @@
 package main.java;
 
 import edu.unh.cs.treccar_v2.Data;
+import main.java.QueryExpansion.QueryExpansionLDA;
 import main.java.QueryExpansion.QueryExpansionQueryEntity;
 import org.apache.lucene.queryparser.classic.ParseException;
 
@@ -96,9 +97,12 @@ public class Main {
 //        writeFile("NLP-variation-Section.run", section_run);
 
 
-        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-        qeqe.runPage();
-        qeqe.runSection();
+//        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+//        qeqe.runPage();
+//        qeqe.runSection();
+        QueryExpansionLDA LDA = new QueryExpansionLDA(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+        LDA.runPage();
+        LDA.runSection();
         System.out.println("Finished");
     }
 

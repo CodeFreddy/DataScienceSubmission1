@@ -82,6 +82,10 @@ public class LDA {
 			return;
 		}
 	}
+
+	public List<String> getWordRanking(){
+		return wordRanking;
+	}
 	
 	public static void showHelp(CmdLineParser parser){
 		System.out.println("LDA [options ...] [arguments...]");

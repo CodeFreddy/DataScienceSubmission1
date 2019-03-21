@@ -2,6 +2,8 @@ package main.java.jgibblda;
 
 import org.omg.PortableInterceptor.INACTIVE;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,6 +28,36 @@ public class InferencerWrapper {
         this.inferencer = inferencer;
 
     }
+
+    public List<String> getWordsByLDA(List<String> input){
+        String[] arguments = new String[] {"-est",
+
+                "-alpha","2","-beta","0.1","-ntopics","2","-niters","1000",
+                "-savestep" ,"100","-twords", "5","-dir","models",
+                "-dfile", "newdocs.dat"
+        };
+        LDA lda = new LDA();
+
+        lda.main(arguments);
+
+        return lda.getWordRanking();
+    }
+
+    public void write(List<String> input){
+        try{
+            BufferedWriter out = new BufferedWriter(new FileWriter("models/newdocs.data"));
+            out.write("1");
+            for (String s: input){
+                out.write(s+" ");
+            }
+            out.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+
 
 
     public Topic[] getTopicsByLDA(List<String> input){

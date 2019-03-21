@@ -92,17 +92,17 @@ public class QueryExpansionLDA {
 
             List<String> termList = topQueryTerms.getTerms();
 
-            Topic[] topics = inferencerWrapper.getTopicsByLDA(termList);
+           // Topic[] topics = inferencerWrapper.getTopicsByLDA(termList);
 
-            List<String> expandedList = new ArrayList<>();
-            if (topics.length == 0){
+            List<String> expandedList = inferencerWrapper.getWordsByLDA(termList);
+            if (expandedList.size() == 0){
                 System.err.println("Topics length 0");
                 continue;
             }
-            System.err.println("Topics length: "+topics.length);
-            for (Topic topic : topics){
-                expandedList.add(topic.toString());
-            }
+//            System.err.println("Topics length: "+topics.length);
+//            for (Topic topic : topics){
+//                expandedList.add(topic.toString());
+//            }
 
             Query newQuery = setBoost(queryStr,expandedList);
 
