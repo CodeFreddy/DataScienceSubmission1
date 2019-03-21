@@ -97,12 +97,12 @@ public class Main {
 //        writeFile("NLP-variation-Section.run", section_run);
 
 
-//        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
 //        qeqe.runPage();
-//        qeqe.runSection();
-        QueryExpansionLDA LDA = new QueryExpansionLDA(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-        LDA.runPage();
-        LDA.runSection();
+        qeqe.runSection();
+//        QueryExpansionLDA LDA = new QueryExpansionLDA(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+//        LDA.runPage();
+//        LDA.runSection();
         System.out.println("Finished");
     }
 
