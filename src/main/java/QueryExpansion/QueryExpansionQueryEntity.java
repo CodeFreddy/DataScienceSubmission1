@@ -154,13 +154,13 @@ public class QueryExpansionQueryEntity {
 
         //for page
         if (!isSection){
-//            String EntityAbstr = EntityFinder.getEntity(queryStr.replace(" ","_").toLowerCase(),INDEX_DIR);
+            String EntityAbstr = EntityFinder.getEntity(queryStr.replace(" ","_").toLowerCase(),INDEX_DIR);
 
-            if (!queryStr.isEmpty()){
+            if (!EntityAbstr.isEmpty()){
                 //find annotation
                 List<Entity> entities = new ArrayList<>();
                 try{
-                    entities = EntityFinder.getRelatedEntity(queryStr);
+                    entities = EntityFinder.getRelatedEntity(EntityAbstr);
                     System.err.println("no Exception" );
                 }catch (Exception e){
                     System.err.println("Exception:" + e.getMessage());
@@ -168,7 +168,7 @@ public class QueryExpansionQueryEntity {
 
                     while (redo){
                         try {
-                            entities = EntityFinder.getRelatedEntity(queryStr);
+                            entities = EntityFinder.getRelatedEntity(EntityAbstr);
                             redo = false;
                         }catch (Exception ex1){
                             System.err.println("Exception:" + ex1.getMessage());
