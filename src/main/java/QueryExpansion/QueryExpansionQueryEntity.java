@@ -153,7 +153,7 @@ public class QueryExpansionQueryEntity {
 
 
         //for page
-        if (!isSection){
+        //if (!isSection){
             String EntityAbstr = EntityFinder.getEntity(queryStr.replace(" ","_").toLowerCase(),INDEX_DIR);
 
             if (!EntityAbstr.isEmpty()){
@@ -193,54 +193,54 @@ public class QueryExpansionQueryEntity {
 //                    return expandedQueryList;
                 }
             }
-        }
+        //}
         //for section
-        else{
-            for (int i = 0; i < queryTerms.size();i++){
-                int factor = 1;
-                String queryTerm = queryTerms.get(i);
-                if (i ==0) factor = 3;
-                if (i == queryTerms.size() - 1) factor = 2;
-
-               String EntityAbstr = EntityFinder.getEntity(queryTerm.replace(" ","_").toLowerCase(),INDEX_DIR);
-
-                if (!EntityAbstr.isEmpty()){
-                    List<Entity> entities = new ArrayList<>();
-
-                    try{
-                        entities = EntityFinder.getRelatedEntity(EntityAbstr);
-                    }catch (Exception e){
-                        System.err.println("Exception:" + e.getMessage());
-                        redo = true;
-
-                        while (redo){
-                            try {
-                                entities = EntityFinder.getRelatedEntity(EntityAbstr);
-                                redo = false;
-                            }catch (Exception ex1){
-                                System.err.println("Exception:" + ex1.getMessage());
-                            }
-                        }
-                    }
-
-
-                    if (entities != null){
-                        if (entities.size() > 0){
-                            for (Entity entity : entities){
-                                float score = (float) entity.getSimilarityScore()*factor;
-                                entityScore.put(entity.getSurfaceForm(),score);
-                            }
-                        }else{
-                            System.err.println("Cannot find related entity for term: "+ queryTerm+", skipped");
-                        }
-                    }
-                }
-            }
-
-            if (entityScore.isEmpty()){
-                return expandedQueryList;
-            }
-        }
+//        else{
+//            for (int i = 0; i < queryTerms.size();i++){
+//                int factor = 1;
+//                String queryTerm = queryTerms.get(i);
+//                if (i ==0) factor = 3;
+//                if (i == queryTerms.size() - 1) factor = 2;
+//
+//               String EntityAbstr = EntityFinder.getEntity(queryTerm.replace(" ","_").toLowerCase(),INDEX_DIR);
+//
+//                if (!EntityAbstr.isEmpty()){
+//                    List<Entity> entities = new ArrayList<>();
+//
+//                    try{
+//                        entities = EntityFinder.getRelatedEntity(EntityAbstr);
+//                    }catch (Exception e){
+//                        System.err.println("Exception:" + e.getMessage());
+//                        redo = true;
+//
+//                        while (redo){
+//                            try {
+//                                entities = EntityFinder.getRelatedEntity(EntityAbstr);
+//                                redo = false;
+//                            }catch (Exception ex1){
+//                                System.err.println("Exception:" + ex1.getMessage());
+//                            }
+//                        }
+//                    }
+//
+//
+//                    if (entities != null){
+//                        if (entities.size() > 0){
+//                            for (Entity entity : entities){
+//                                float score = (float) entity.getSimilarityScore()*factor;
+//                                entityScore.put(entity.getSurfaceForm(),score);
+//                            }
+//                        }else{
+//                            System.err.println("Cannot find related entity for term: "+ queryTerm+", skipped");
+//                        }
+//                    }
+//                }
+//            }
+//
+//            if (entityScore.isEmpty()){
+//                return expandedQueryList;
+//            }
+//        }
 
         Set<String> set = SortMapByScore(entityScore,5);
 
