@@ -31,6 +31,8 @@ public class SpotLight {
         String response = get(buildUrl);
 //        System.out.println(buildUrl);
         response = response.replace("\"@","\"");
+
+        System.out.println(response);
         return response;
     }
 

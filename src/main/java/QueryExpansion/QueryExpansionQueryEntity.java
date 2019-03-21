@@ -1,4 +1,4 @@
-package main.java;
+package main.java.QueryExpansion;
 
 import main.java.EntityLinking.Entity;
 import main.java.EntityLinking.EntityFinder;
@@ -56,7 +56,7 @@ public class QueryExpansionQueryEntity {
         }
     }
 
-    public void run(Map<String,String> map,String fileName) throws Exception {
+    public void run(Map<String,String> map,String fileName)  throws Exception{
         searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open((new File(INDEX_DIR).toPath()))));
         searcher.setSimilarity(new BM25Similarity());
         parser = new QueryParser("content", new StandardAnalyzer());
@@ -65,18 +65,32 @@ public class QueryExpansionQueryEntity {
         for (Map.Entry<String, String> entry:map.entrySet()){
             String queryStr = entry.getValue();
             String queryId = entry.getKey();
-            List<String> expandedQueryList = getExpanedQuery(5,queryStr);
+            Query q = parser.parse(QueryParser.escape(queryStr));
+            TopDocs tops = searcher.search(q, max_result);
+            ScoreDoc[] scoreDocArr = tops.scoreDocs;
 
-            Query q = weightQuery(queryStr,expandedQueryList);
+            if(scoreDocArr.length == 0) continue;
+
+            ScoreDoc score = scoreDocArr[0];
+            Document doc= searcher.doc(score.doc);
+
+            String tmp = doc.getField("content").stringValue();
+
+            List<String> expandedQueryList
+                    = getExpanedQuery(5,tmp);
 
 
-            TopDocs tops = searcher.search(q,100);
+
+            q = weightQuery(queryStr,expandedQueryList);
+
+
+            tops = searcher.search(q,100);
 
             ScoreDoc[] scoreDocs = tops.scoreDocs;
 
             for (int i = 0; i < scoreDocs.length; i++){
                 ScoreDoc scoreDoc = scoreDocs[i];
-                Document doc = searcher.doc(scoreDoc.doc);
+                Document doc1 = searcher.doc(scoreDoc.doc);
                 String paraId = doc.getField("paraid").stringValue();
                 float rankScore = scoreDoc.score;
                 int rank = i+1;
@@ -116,7 +130,7 @@ public class QueryExpansionQueryEntity {
         }
     }
 
-    public List<String> getExpanedQuery(int top, String queryStr) throws Exception {
+    public List<String> getExpanedQuery(int top, String queryStr)  {
         //for both page and section query
 
         // to identify page or section
@@ -133,12 +147,32 @@ public class QueryExpansionQueryEntity {
 
         }
 
+        boolean redo = false;
+
+
         //for page
         if (!isSection){
-            String firstEntity = EntityFinder.getEntity(queryStr.replace(" ","_").toLowerCase(),INDEX_DIR);
+//            String EntityAbstr = EntityFinder.getEntity(queryStr.replace(" ","_").toLowerCase(),INDEX_DIR);
 
-            if (!firstEntity.isEmpty()){
-                List<Entity> entities = EntityFinder.getRelatedEntity(firstEntity);
+            if (!queryStr.isEmpty()){
+                //find annotation
+                List<Entity> entities = new ArrayList<>();
+                try{
+                    entities = EntityFinder.getRelatedEntity(queryStr);
+                }catch (Exception e){
+                    System.err.println("Exception:" + e.getMessage());
+                    redo = true;
+
+                    while (redo){
+                        try {
+                            entities = EntityFinder.getRelatedEntity(queryStr);
+                            redo = false;
+                        }catch (Exception ex1){
+                            System.err.println("Exception:" + ex1.getMessage());
+                        }
+                    }
+                }
+
 
                 if (entities == null) return expandedQueryList;
 
@@ -148,12 +182,12 @@ public class QueryExpansionQueryEntity {
                     }
                 }else if (entities.size() > 0 && entities.size() <= 5){
                     for (Entity entity : entities){
-                        expandedQueryList.add(entity.getSurfaceForm());
+                        entityScore.put(entity.getSurfaceForm(),entity.getSimilarityScore());
                     }
 
-                    return  expandedQueryList;
+//                    return  expandedQueryList;
                 }else{
-                    return expandedQueryList;
+//                    return expandedQueryList;
                 }
             }
         }
@@ -165,10 +199,28 @@ public class QueryExpansionQueryEntity {
                 if (i ==0) factor = 3;
                 if (i == queryTerms.size() - 1) factor = 2;
 
-                String firstEntity = EntityFinder.getEntity(queryTerm.replace(" ","_").toLowerCase(),INDEX_DIR);
+//                String EntityAbstr = EntityFinder.getEntity(queryTerm.replace(" ","_").toLowerCase(),INDEX_DIR);
 
-                if (!firstEntity.isEmpty()){
-                    List<Entity> entities = EntityFinder.getRelatedEntity(firstEntity);
+                if (!queryStr.isEmpty()){
+                    List<Entity> entities = new ArrayList<>();
+
+                    try{
+                        entities = EntityFinder.getRelatedEntity(queryStr);
+                    }catch (Exception e){
+                        System.err.println("Exception:" + e.getMessage());
+                        redo = true;
+
+                        while (redo){
+                            try {
+                                entities = EntityFinder.getRelatedEntity(queryStr);
+                                redo = false;
+                            }catch (Exception ex1){
+                                System.err.println("Exception:" + ex1.getMessage());
+                            }
+                        }
+                    }
+
+
                     if (entities != null){
                         if (entities.size() > 0){
                             for (Entity entity : entities){

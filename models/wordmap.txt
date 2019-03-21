@@ -1,0 +1,5 @@
+4
+IBM 0
+Adapter 3
+Monochrome 1
+Display 2
