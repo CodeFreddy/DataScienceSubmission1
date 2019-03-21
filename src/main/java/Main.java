@@ -92,8 +92,8 @@ public class Main {
         // Run NLP entities variation methods
 //        ArrayList<String> page_run = NLP_variation.getResults(pageMap, INDEX_DIRECTORY);
 //        writeFile("NLP-variation-Page.run", page_run);
-        ArrayList<String> section_run = NLP_variation.getResults(sectionMap, INDEX_DIRECTORY);
-        writeFile("NLP-variation-Section.run", section_run);
+//        ArrayList<String> section_run = NLP_variation.getResults(sectionMap, INDEX_DIRECTORY);
+//        writeFile("NLP-variation-Section.run", section_run);
 
 
 //        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
