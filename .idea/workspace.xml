@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NLP_variation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NLP_variation.java" afterDir="false" />
-    </list>
+    <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,13 +19,13 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+            <state relative-caret-position="-902">
+              <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityFinder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EntityFinder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -106,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NLP_variation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NLP_variation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/NLP_variation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="96" column="17" lean-forward="true" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
+            <state relative-caret-position="411">
+              <caret line="133" column="32" lean-forward="true" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1205#1213#0" expanded="true" />
@@ -230,9 +224,9 @@
         <option value="$PROJECT_DIR$/src/main/java/IndexData.java" />
         <option value="$PROJECT_DIR$/src/main/java/NLP/NLP_Processor.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bigram_variation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/NLP_variation.java" />
       </list>
     </option>
@@ -646,7 +640,28 @@
       <option name="project" value="LOCAL" />
       <updated>1553115570332</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fix some bugs in NLP_variation.java">
+      <created>1553119804156</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1553119804156</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix some bugs in NLP_variation.java">
+      <created>1553119963243</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1553119963243</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix some bugs in NLP_variation.java">
+      <created>1553127996093</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1553127996093</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -670,7 +685,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.34950495" />
       <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.14658849" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49946752" visible="true" weight="0.1336117" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49946752" visible="true" weight="0.18997912" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49946752" weight="0.12970297" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.11584158" />
       <window_info id="Capture Tool" order="6" />
@@ -1097,34 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1869#1870#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
-            <element signature="e#1974#1975#0" expanded="true" />
-            <element signature="e#2017#2018#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NLP/NLP_Processor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3476">
-          <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#2023#2042#0" expanded="true" />
-            <element signature="e#2111#2130#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -1172,24 +1159,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/NLP/NLP_Processor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NLP_variation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="96" column="17" lean-forward="true" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
+        <state relative-caret-position="3476">
+          <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1205#1213#0" expanded="true" />
-            <element signature="e#2593#2601#0" expanded="true" />
-            <element signature="e#7415#7424#0" expanded="true" />
-            <element signature="e#7625#7653#0" expanded="true" />
-            <element signature="e#8090#8107#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#2023#2042#0" expanded="true" />
+            <element signature="e#2111#2130#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1201,6 +1180,42 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getEntity#0;class#EntityFinder#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-902">
+          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1869#1870#0" expanded="true" />
+            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2017#2018#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/NLP_variation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="133" column="32" lean-forward="true" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1205#1213#0" expanded="true" />
+            <element signature="e#2593#2601#0" expanded="true" />
+            <element signature="e#7415#7424#0" expanded="true" />
+            <element signature="e#7625#7653#0" expanded="true" />
+            <element signature="e#8090#8107#0" expanded="true" />
           </folding>
         </state>
       </provider>
