@@ -93,7 +93,7 @@ public class QueryExpansionQueryEntity {
             for (int i = 0; i < scoreDocs.length; i++){
                 ScoreDoc scoreDoc = scoreDocs[i];
                 Document doc1 = searcher.doc(scoreDoc.doc);
-                String paraId = doc.getField("paraid").stringValue();
+                String paraId = doc1.getField("paraid").stringValue();
                 float rankScore = scoreDoc.score;
                 int rank = i+1;
                 String runStr = queryId+" Q0 "+paraId+" "+rank+ " "+rankScore+" "+"team3"+" QueryExpansion";
