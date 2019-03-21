@@ -32,7 +32,7 @@ public class SpotLight {
 //        System.out.println(buildUrl);
         response = response.replace("\"@","\"");
 
-        System.out.println(response);
+//        System.out.println(response);
         return response;
     }
 
