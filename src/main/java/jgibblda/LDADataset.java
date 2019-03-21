@@ -244,11 +244,11 @@ public class LDADataset {
 		}
 	}
 	
-	/**
-	 * read a dataset from a string, create new dictionary
-	 * @param str String from which we get the dataset, documents are seperated by newline character 
-	 * @return dataset if success and null otherwise
-	 */
+//	/**
+//	 * read a dataset from a string, create new dictionary
+//	 * @param str String from which we get the dataset, documents are seperated by newline character
+//	 * @return dataset if success and null otherwise
+//	 */
 	public static LDADataset readDataSet(String [] strs){
 		LDADataset data = new LDADataset(strs.length);
 		
@@ -258,12 +258,12 @@ public class LDADataset {
 		return data;
 	}
 	
-	/**
-	 * read a dataset from a string with respect to a specified dictionary
-	 * @param str String from which we get the dataset, documents are seperated by newline character	
-	 * @param dict the dictionary
-	 * @return dataset if success and null otherwise
-	 */
+//	/**
+//	 * read a dataset from a string with respect to a specified dictionary
+//	 * @param str String from which we get the dataset, documents are seperated by newline character
+//	 * @param dict the dictionary
+//	 * @return dataset if success and null otherwise
+//	 */
 	public static LDADataset readDataSet(String [] strs, Dictionary dict){
 		//System.out.println("readDataset...");
 		LDADataset data = new LDADataset(strs.length, dict);
