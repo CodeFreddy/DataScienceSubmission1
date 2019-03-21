@@ -98,7 +98,7 @@ public class Main {
 
 
         QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-//        qeqe.runPage();
+        qeqe.runPage();
         qeqe.runSection();
 //        QueryExpansionLDA LDA = new QueryExpansionLDA(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
 //        LDA.runPage();
