@@ -159,6 +159,7 @@ public class QueryExpansionQueryEntity {
                 List<Entity> entities = new ArrayList<>();
                 try{
                     entities = EntityFinder.getRelatedEntity(queryStr);
+                    System.err.println("no Exception" );
                 }catch (Exception e){
                     System.err.println("Exception:" + e.getMessage());
                     redo = true;

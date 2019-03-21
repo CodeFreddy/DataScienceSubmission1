@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Main {
-    static private String INDEX_DIRECTORY = "C:/CS953/DataScienceSubmission1/index";
-    static private String OUTPUT_DIR = "C:/CS953/DataScienceSubmission1/output";
+    static private String INDEX_DIRECTORY = "/Users/xin/Documents/19Spring/DS/index";
+    static private String OUTPUT_DIR = "out";
     static final private int Max_Results = 100;
 
     static IndexData indexer;
@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) throws Exception,IOException, ParseException {
         System.setProperty("file.encoding", "UTF-8");
 
-        String queryPath = "C:/CS853/programAssignment3/test200-train/train.pages.cbor-outlines.cbor";
+        String queryPath = "/Users/xin/Desktop/benchmarkY2.public/benchmarkY2.cbor-outlines.cbor";
 
 
         String dataPath = "/Users/xin/Documents/19Spring/DS/test200/test200-train/train.pages.cbor-paragraphs.cbor";
@@ -90,15 +90,15 @@ public class Main {
 
 
         // Run NLP entities variation methods
-        ArrayList<String> page_run = NLP_variation.getResults(pageMap, INDEX_DIRECTORY);
-        writeFile("NLP-variation-Page.run", page_run);
+//        ArrayList<String> page_run = NLP_variation.getResults(pageMap, INDEX_DIRECTORY);
+//        writeFile("NLP-variation-Page.run", page_run);
 //        ArrayList<String> section_run = NLP_variation.getResults(sectionMap, INDEX_DIRECTORY);
 //        writeFile("NLP-variation-Section.run", section_run);
 
 
-//        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-//        qeqe.runPage();
-//        qeqe.runSection();
+        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+        qeqe.runPage();
+        qeqe.runSection();
         System.out.println("Finished");
     }
 
