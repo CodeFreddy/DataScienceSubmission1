@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="fix illegel char bug in index from spotlight">
+    <list default="true" id="a7696920-343d-47c1-ad92-ed3a11cfd79d" name="Default" comment="update index spotlight">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityLinking/EntityFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IndexData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IndexData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+            <state relative-caret-position="556">
+              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -270,7 +268,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553480965280" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553481599724" />
     <property name="last_opened_file_path" value="C:/CS853/programmingAssignment4Group7" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -356,13 +354,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548863499764</updated>
-    </task>
-    <task id="LOCAL-00002" summary="update">
-      <created>1549217130301</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1549217130304</updated>
     </task>
     <task id="LOCAL-00003" summary="update">
       <created>1549217206122</created>
@@ -700,7 +691,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553150761464</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update index spotlight">
+      <created>1553480984140</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1553480984140</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -774,7 +772,8 @@
     <MESSAGE value="rewrite UL.java, UJM.data and fix some bugs" />
     <MESSAGE value="Add spotlight to index" />
     <MESSAGE value="fix illegel char bug in index from spotlight" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix illegel char bug in index from spotlight" />
+    <MESSAGE value="update index spotlight" />
+    <option name="LAST_COMMIT_MESSAGE" value="update index spotlight" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -1074,8 +1073,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+        <state relative-caret-position="556">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
