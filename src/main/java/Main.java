@@ -37,13 +37,13 @@ public class Main {
         //dataPath = args[1];
         OUTPUT_DIR = args[2];
 
-//        indexer = new IndexData(INDEX_DIRECTORY, dataPath);
-        //indexer.reIndex();
+        indexer = new IndexData(INDEX_DIRECTORY, dataPath);
+        indexer.reIndex();
 
-        QueryData queryData = new QueryData(queryPath);
+//        QueryData queryData = new QueryData(queryPath);
 //
-        Map<String,String> pageMap = queryData.getAllPageQueries();
-        Map<String,String> sectionMap = queryData.getAllSectionQueries();
+//        Map<String,String> pageMap = queryData.getAllPageQueries();
+//        Map<String,String> sectionMap = queryData.getAllSectionQueries();
 //        ArrayList<Data.Page> pageList = queryData.getPageList();
 //        ArrayList<Data.Section> sectionList = queryData.getSectionList();
 //
@@ -94,8 +94,8 @@ public class Main {
         // Run NLP entities variation methods
 //        ArrayList<String> page_run = NLP_variation.getResults(pageMap, INDEX_DIRECTORY);
 //        writeFile("NLP-variation-Page.run", page_run);
-        ArrayList<String> section_run = NLP_variation.getResults(sectionMap, INDEX_DIRECTORY);
-        writeFile("NLP-variation-Section.run", section_run);
+//        ArrayList<String> section_run = NLP_variation.getResults(sectionMap, INDEX_DIRECTORY);
+//        writeFile("NLP-variation-Section.run", section_run);
 
 //
 //        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);

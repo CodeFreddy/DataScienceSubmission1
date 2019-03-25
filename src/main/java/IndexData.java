@@ -75,8 +75,8 @@ public class IndexData {
         Document doc = new Document();
         doc.add(new StringField("paraid", paragraph.getParaId(), Field.Store.YES));//id
         doc.add(new TextField("content", paragraph.getTextOnly(), Field.Store.YES));//body
-        HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
-        doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
+//        HashMap<String, Float> bigram_score = BigramIndex.createBigramIndexFiled(paragraph.getTextOnly());
+//        doc.add(new TextField("bigram", bigram_score.toString(), Field.Store.YES));
 
         List<Entity> linkedEntity = new ArrayList<>();
 
@@ -87,9 +87,13 @@ public class IndexData {
 
         }catch (Exception e){
             System.err.println("cannot get json response from spotlight");
-            reIndex.add(paragraph);
-            linkedEntity = null;
-            return null;
+            try{
+                linkedEntity = entityFinder.getRelatedEntity(paragraph.getTextOnly());
+            }catch (Exception e1){
+                System.err.println("Again!!cannot get json response from spotlight");
+                reIndex.add(paragraph);
+                return null;
+            }
         }
 
         if (linkedEntity !=null    ){
@@ -121,7 +125,7 @@ public class IndexData {
 
                 }catch (Exception e){
                     System.err.println("cannot get json response from spotlight");
-                    continue;
+                    doc.add(new StringField("spotlight",p.getTextOnly(),Field.Store.YES));
 
                 }
 
