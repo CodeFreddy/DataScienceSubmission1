@@ -83,7 +83,6 @@ public class EntityFinder {
 
     public  static List<Entity> getRelatedEntity(String content) throws Exception  {
         List<Entity> list = new ArrayList<>();
-        int i = 1;
 
             String jsonStr = SpotLight.getRelatedJson(content);
 //            System.out.println(jsonStr);

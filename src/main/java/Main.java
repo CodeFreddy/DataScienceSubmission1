@@ -34,17 +34,17 @@ public class Main {
 
 
         INDEX_DIRECTORY = args[0];
-        queryPath = args[1];
-        //dataPath = args[1];
+        //queryPath = args[1];
+        dataPath = args[1];
         OUTPUT_DIR = args[2];
 
-//        indexer = new IndexData(INDEX_DIRECTORY, dataPath);
-        //indexer.reIndex();
+        indexer = new IndexData(INDEX_DIRECTORY, dataPath);
+        indexer.reIndex();
 
-        QueryData queryData = new QueryData(queryPath);
+//        QueryData queryData = new QueryData(queryPath);
 //
-        Map<String,String> pageMap = queryData.getAllPageQueries();
-        Map<String,String> sectionMap = queryData.getAllSectionQueries();
+//        Map<String,String> pageMap = queryData.getAllPageQueries();
+//        Map<String,String> sectionMap = queryData.getAllSectionQueries();
 //        ArrayList<Data.Page> pageList = queryData.getPageList();
 //        ArrayList<Data.Section> sectionList = queryData.getSectionList();
 //
