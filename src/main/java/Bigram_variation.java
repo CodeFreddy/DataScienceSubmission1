@@ -96,7 +96,7 @@ public class Bigram_variation {
 
             int rank = 1;
             for (Map.Entry<String, Float> entry1 : BigramIndex.getTopValuesInMap(score_map, max_results).entrySet()) {
-                String runStr = "enwiki:" + queryId + " Q0 " + entry1.getKey() + " " + rank + " " + entry1.getValue() + " FreqBigram";
+                String runStr = queryId + " Q0 " + entry1.getKey() + " " + rank + " " + entry1.getValue() + " FreqBigram";
                 rank++;
                 if (runFileStr.contains(runStr)) {
                     duplicate++;
