@@ -41,10 +41,10 @@ public class Main {
         indexer = new IndexData(INDEX_DIRECTORY, dataPath);
         indexer.reIndex();
 
-//        QueryData queryData = new QueryData(queryPath);
-//
-//        Map<String,String> pageMap = queryData.getAllPageQueries();
-//        Map<String,String> sectionMap = queryData.getAllSectionQueries();
+        QueryData queryData = new QueryData(queryPath);
+
+        Map<String,String> pageMap = queryData.getAllPageQueries();
+        Map<String,String> sectionMap = queryData.getAllSectionQueries();
 //        ArrayList<Data.Page> pageList = queryData.getPageList();
 //        ArrayList<Data.Section> sectionList = queryData.getSectionList();
 //
