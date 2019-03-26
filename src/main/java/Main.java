@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -94,8 +95,8 @@ public class Main {
         // Run NLP entities variation methods
 //        ArrayList<String> page_run = NLP_variation.getResults(pageMap, INDEX_DIRECTORY);
 //        writeFile("NLP-variation-Page.run", page_run);
-        ArrayList<String> section_run = NLP_variation.getResults(sectionMap, INDEX_DIRECTORY);
-        writeFile("NLP-variation-Section.run", section_run);
+//        ArrayList<String> section_run = NLP_variation.getResults(sectionMap, INDEX_DIRECTORY);
+//        writeFile("NLP-variation-Section.run", section_run);
 
 //
 //        QueryExpansionQueryEntity qeqe = new QueryExpansionQueryEntity(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
@@ -105,6 +106,13 @@ public class Main {
 //        QueryExpansionLDA LDA = new QueryExpansionLDA(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
 //        LDA.runPage();
 //        LDA.runSection();
+
+        ArrayList<String> freqBigram_Page_run = Bigram_variation.getSearchResult(pageMap, INDEX_DIRECTORY);
+        writeFile("Bigram-Variation-Page.run", freqBigram_Page_run);
+
+        ArrayList<String> freqBigram_Section_run = Bigram_variation.getSearchResult(sectionMap, INDEX_DIRECTORY);
+        writeFile("Bigram-Variation-Section.run", freqBigram_Section_run);
+
         System.out.println("Finished");
     }
 

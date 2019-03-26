@@ -21,7 +21,7 @@ import java.util.Map;
 public class Bigram_variation {
     private static final int max_results = 100;
 
-    public static ArrayList<String> getSearchResult(HashMap<String, String> queriesStr, String indeDir) throws IOException, ParseException {
+    public static ArrayList<String> getSearchResult(Map<String, String> queriesStr, String indeDir) throws IOException, ParseException {
         System.out.println("Retriving results for " + queriesStr.size() + " queries...");
         ArrayList<String> runFileStr = new ArrayList<>();
         IndexSearcher searcher = null;
