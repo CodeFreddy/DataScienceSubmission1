@@ -38,8 +38,8 @@ public class Main {
         //dataPath = args[1];
         OUTPUT_DIR = args[2];
 
-        indexer = new IndexData(INDEX_DIRECTORY, dataPath);
-        indexer.reIndex();
+//        indexer = new IndexData(INDEX_DIRECTORY, dataPath);
+//        indexer.reIndex();
 
         QueryData queryData = new QueryData(queryPath);
 
