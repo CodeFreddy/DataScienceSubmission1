@@ -134,7 +134,7 @@ public class QueryExpansionWordNet {
 
             String newQuery = getExpandedQuery(queryStr);
 
-            Query q = parser.parse(QueryParser.escape(newQuery));
+            Query q = parser.parse(QueryParser.escape(queryStr));
 
             TopDocs tops = searcher.search(q, max_result);
             ScoreDoc[] scoreDoc = tops.scoreDocs;
