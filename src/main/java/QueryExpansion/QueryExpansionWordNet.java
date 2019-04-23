@@ -88,7 +88,8 @@ public class QueryExpansionWordNet {
     }
 
     public String getExpandedQuery(String queryStr){
-        RiWordNet wordNet = new RiWordNet("/usr/local/WordNet-3.0");
+//        RiWordNet wordNet = new RiWordNet("/usr/local/WordNet-3.0");
+        RiWordNet wordNet = new RiWordNet("/home/tianxiu/WordNet");
         wordNet.randomizeResults(false);
         StringBuilder sb = new StringBuilder();
 
