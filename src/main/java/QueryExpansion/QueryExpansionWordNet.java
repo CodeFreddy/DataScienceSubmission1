@@ -138,12 +138,14 @@ public class QueryExpansionWordNet {
 
             String newQuery = getExpandedQuery(queryStr);
 
-            Query q = parser.parse(QueryParser.escape(newQuery));
+            Query q = parser.parse(QueryParser.escape(queryStr));
 
             TopDocs tops = searcher.search(q, max_result);
             ScoreDoc[] scoreDoc = tops.scoreDocs;
+
+
             List<String> expandQueryList = expandQueryByRocchio(5,scoreDoc);
-            Query q_rm = setBoost(newQuery,expandQueryList);
+            Query q_rm = setBoost(queryStr,expandQueryList);
 
             tops = searcher.search(q_rm, max_result);
             ScoreDoc[] newScoreDoc = tops.scoreDocs;
@@ -162,87 +164,18 @@ public class QueryExpansionWordNet {
                 }
             }
         }
-
         writeToFile(fileName,runFileStr);
 
-
     }
-
-    private int getFreq(String term, List<String> list) {
-        int frequency = Collections.frequency(list, term);
-        return frequency;
-    }
-    public CharArraySet getStopWordSet(){
-        //String stopWordDir = "/home/xl1044/ds/Query_Expansion/QueryExpaison/File/stop_word.cfg";
-        String stopWordDir = "src/resources/stop_word.cfg";
-
-        List<String> list = new ArrayList<>();
-
-        String line = "";
-
-        try{
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(stopWordDir));
-
-            while ((line = bufferedReader.readLine()) != null){
-                if (!line.isEmpty()){
-                    list.add(line.replace(" ",""));
-                }
-            }
-
-            bufferedReader.close();
-
-            CharArraySet stopWord = new CharArraySet(list,true);
-
-            return  stopWord;
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
+    private Query setBoost(String originalQuery, List<String> expanded_list) throws ParseException {
+        if (!expanded_list.isEmpty()) {
+            String rm_str = String.join(" ", expanded_list);
+            Query q = parser.parse(QueryParser.escape(originalQuery) + "^1.5" + QueryParser.escape(rm_str) + "^0.75");
+            return q;
+        } else {
+            Query q = parser.parse(QueryParser.escape(originalQuery));
+            return q;
         }
-    }
-    private  List<String> analyze(String inputStr) throws IOException{
-        List<String> strList = new ArrayList<>();
-        //double check with the token
-        Analyzer test = new EnglishAnalyzer(getStopWordSet());
-
-        TokenStream tokenizer = test.tokenStream("content", inputStr);
-
-        CharTermAttribute charTermAttribute = tokenizer.addAttribute(CharTermAttribute.class);
-        tokenizer.reset();
-        while (tokenizer.incrementToken()) {
-            String token = charTermAttribute.toString();
-            strList.add(token);
-        }
-        tokenizer.end();
-        tokenizer.close();
-
-        return strList;
-    }
-
-    public static Set<String> getTop(Map<String, Float> unsortMap, int k) {
-        List<Map.Entry<String, Float>> list = new LinkedList<Map.Entry<String, Float>>(unsortMap.entrySet());
-
-        Collections.sort(list, new Comparator<Map.Entry<String, Float>>() {
-
-            public int compare(Map.Entry<String, Float> o1, Map.Entry<String, Float> o2) {
-                return (o2.getValue()).compareTo(o1.getValue());
-            }
-        });
-
-        Map<String, Float> Map = new LinkedHashMap<>();
-
-        int i = 0;
-        for (Map.Entry<String, Float> entry : list)
-
-        {
-            if (i < k || k == 0) {
-                Map.put(entry.getKey(), entry.getValue());
-                i++;
-            } else {
-                break;
-            }
-        }
-
-        return Map.keySet();
     }
 
     public List<String> expandQueryByRocchio(int top, ScoreDoc[] scoreDocs) throws IOException {
@@ -254,7 +187,6 @@ public class QueryExpansionWordNet {
             ScoreDoc score = scoreDocs[i];
             Document doc = searcher.doc(score.doc);
             String paraBody = doc.getField("content").toString();
-
 
             //document term vector
             List<String> unigram_list = analyze(paraBody);
@@ -289,16 +221,8 @@ public class QueryExpansionWordNet {
         return expandedList;
     }
 
-    private Query setBoost(String originalQuery, List<String> expanded_list) throws ParseException {
-        if (!expanded_list.isEmpty()) {
-            String rm_str = String.join(" ", expanded_list);
-            Query q = parser.parse(QueryParser.escape(originalQuery) + "^1.5" + QueryParser.escape(rm_str) + "^0.75");
-            return q;
-        } else {
-            Query q = parser.parse(QueryParser.escape(originalQuery));
-            return q;
-        }
-    }
+
+
 
     private void writeToFile(String filename, Set<String> runfileStrings) {
         String fullpath = OUTPUT_DIR + "/" + filename;
@@ -314,6 +238,102 @@ public class QueryExpansionWordNet {
         System.out.println("wrote file to "+ OUTPUT_DIR);
     }
 
+    public static Set<String> getTop(Map<String, Float> unsortMap, int k) {
+        List<Map.Entry<String, Float>> list = new LinkedList<Map.Entry<String, Float>>(unsortMap.entrySet());
+
+        Collections.sort(list, new Comparator<Map.Entry<String, Float>>() {
+
+            public int compare(Map.Entry<String, Float> o1, Map.Entry<String, Float> o2) {
+                return (o2.getValue()).compareTo(o1.getValue());
+            }
+        });
+
+        Map<String, Float> Map = new LinkedHashMap<>();
+
+        int i = 0;
+        for (Map.Entry<String, Float> entry : list)
+
+        {
+            if (i < k || k == 0) {
+                Map.put(entry.getKey(), entry.getValue());
+                i++;
+            } else {
+                break;
+            }
+        }
+
+        return Map.keySet();
+    }
+
+    private int getFreq(String term, List<String> list) {
+        int frequency = Collections.frequency(list, term);
+        return frequency;
+    }
+
+    public CharArraySet getStopWordSet(){
+        //String stopWordDir = "/home/xl1044/ds/Query_Expansion/QueryExpaison/File/stop_word.cfg";
+        String stopWordDir = "src/resources/stop_word.cfg";
+
+        List<String> list = new ArrayList<>();
+
+        String line = "";
+
+        try{
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(stopWordDir));
+
+            while ((line = bufferedReader.readLine()) != null){
+                if (!line.isEmpty()){
+                    list.add(line.replace(" ",""));
+                }
+            }
+
+            bufferedReader.close();
+
+            CharArraySet stopWord = new CharArraySet(list,true);
+
+            return  stopWord;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private  List<String> analyze(String inputStr) throws IOException{
+        List<String> strList = new ArrayList<>();
+        //double check with the token
+        Analyzer test = new EnglishAnalyzer(getStopWordSet());
+
+        TokenStream tokenizer = test.tokenStream("content", inputStr);
+
+        CharTermAttribute charTermAttribute = tokenizer.addAttribute(CharTermAttribute.class);
+        tokenizer.reset();
+        while (tokenizer.incrementToken()) {
+            String token = charTermAttribute.toString();
+            strList.add(token);
+        }
+        tokenizer.end();
+        tokenizer.close();
+
+        return strList;
+    }
+
+    public Map<String, Float> combine(Map<String, Float> originalQuery, Map<String, Float> expanededQuery){
+
+        for (Map.Entry<String,Float> entry : originalQuery.entrySet()){
+            String term = entry.getKey();
+            float weight = entry.getValue();
+            if (expanededQuery.containsKey(term)){
+                expanededQuery.put(term,expanededQuery.get(term)+weight);
+            }
+            else{
+                expanededQuery.put(term,weight);
+            }
+        }
+
+        return expanededQuery;
+
+
+    }
 
 
 }
