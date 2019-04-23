@@ -226,7 +226,7 @@ public class QueryExpansionWordNet {
 
     private void writeToFile(String filename, Set<String> runfileStrings) {
         String fullpath = OUTPUT_DIR + "/" + filename;
-
+        System.out.println(fullpath);
         try (FileWriter runfile = new FileWriter(new File(fullpath))) {
             for (String line : runfileStrings) {
                 runfile.write(line + "\n");
