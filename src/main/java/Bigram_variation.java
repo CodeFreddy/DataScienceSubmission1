@@ -21,7 +21,7 @@ import java.util.Map;
 public class Bigram_variation {
     private static final int max_results = 100;
 
-    public static ArrayList<String> getSearchResult(HashMap<String, String> queriesStr, String indeDir) throws IOException, ParseException {
+    public static ArrayList<String> getSearchResult(Map<String, String> queriesStr, String indeDir) throws IOException, ParseException {
         System.out.println("Retriving results for " + queriesStr.size() + " queries...");
         ArrayList<String> runFileStr = new ArrayList<>();
         IndexSearcher searcher = null;
@@ -96,7 +96,7 @@ public class Bigram_variation {
 
             int rank = 1;
             for (Map.Entry<String, Float> entry1 : BigramIndex.getTopValuesInMap(score_map, max_results).entrySet()) {
-                String runStr = "enwiki:" + queryId + " Q0 " + entry1.getKey() + " " + rank + " " + entry1.getValue() + " FreqBigram";
+                String runStr = queryId + " Q0 " + entry1.getKey() + " " + rank + " " + entry1.getValue() + " FreqBigram";
                 rank++;
                 if (runFileStr.contains(runStr)) {
                     duplicate++;
