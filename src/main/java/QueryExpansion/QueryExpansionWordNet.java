@@ -185,6 +185,7 @@ public class QueryExpansionWordNet {
 
 
         for (int i = 0; i < scoreDocs.length;i++){
+            System.out.println(i+" / "+scoreDocs.length);
             ScoreDoc score = scoreDocs[i];
             Document doc = searcher.doc(score.doc);
             String paraBody = doc.getField("content").toString();
