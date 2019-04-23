@@ -138,14 +138,14 @@ public class QueryExpansionWordNet {
 
             String newQuery = getExpandedQuery(queryStr);
 
-            Query q = parser.parse(QueryParser.escape(queryStr));
+            Query q = parser.parse(QueryParser.escape(newQuery));
 
             TopDocs tops = searcher.search(q, max_result);
             ScoreDoc[] scoreDoc = tops.scoreDocs;
 
 
             List<String> expandQueryList = expandQueryByRocchio(5,scoreDoc);
-            Query q_rm = setBoost(queryStr,expandQueryList);
+            Query q_rm = setBoost(newQuery,expandQueryList);
 
             tops = searcher.search(q_rm, max_result);
             ScoreDoc[] newScoreDoc = tops.scoreDocs;
