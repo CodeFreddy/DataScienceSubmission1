@@ -109,6 +109,29 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <executions>
+                    <execution>
+                        <id>install-external</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${basedir}/src/resources/rita.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>com.rita</groupId>
+                            <artifactId>ritaWordnet</artifactId>
+                            <version>1.0</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
             <!-- Maven Assembly Plugin -->
             <plugin>
@@ -140,22 +163,7 @@
                         </goals>
                     </execution>
 
-                    <execution>
-                        <id>install-external</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <file>${basedir}/src/resources/rita.jar</file>
-                            <repositoryLayout>default</repositoryLayout>
-                            <groupId>com.rita</groupId>
-                            <artifactId>ritaWordnet</artifactId>
-                            <version>1.0</version>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
+
                 </executions>
             </plugin>
 
