@@ -128,7 +128,7 @@ public class QueryExpansionWordNet {
         Set<String> runFileStr = new HashSet<>();
         int count = 1;
         for (Map.Entry<String, String> entry:map.entrySet()){
-            System.out.print(count+" / "+map.size());
+//            System.out.print(count+" / "+map.size());
             count++;
             String queryStr = entry.getValue();
             String queryId = entry.getKey();
@@ -187,7 +187,7 @@ public class QueryExpansionWordNet {
 
 
         for (int i = 0; i < scoreDocs.length;i++){
-            System.out.println(i+" / "+scoreDocs.length);
+//            System.out.println(i+" / "+scoreDocs.length);
             ScoreDoc score = scoreDocs[i];
             Document doc = searcher.doc(score.doc);
             String paraBody = doc.getField("content").toString();
