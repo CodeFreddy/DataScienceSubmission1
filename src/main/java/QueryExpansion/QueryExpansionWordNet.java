@@ -1,5 +1,9 @@
 package main.java.QueryExpansion;
+import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
+import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.en.EnglishAnalyzer;
+import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -134,14 +138,18 @@ public class QueryExpansionWordNet {
 
             String newQuery = getExpandedQuery(queryStr);
 
-            Query q = parser.parse(QueryParser.escape(queryStr));
+            Query q = parser.parse(QueryParser.escape(newQuery));
 
             TopDocs tops = searcher.search(q, max_result);
             ScoreDoc[] scoreDoc = tops.scoreDocs;
+            List<String> expandQueryList = expandQueryByRocchio(5,scoreDoc);
+            Query q_rm = setBoost(newQuery,expandQueryList);
 
+            tops = searcher.search(q_rm, max_result);
+            ScoreDoc[] newScoreDoc = tops.scoreDocs;
 
-            for (int i = 0; i < scoreDoc.length;i++ ){
-                ScoreDoc score = scoreDoc[i];
+            for (int i = 0; i < newScoreDoc.length;i++ ){
+                ScoreDoc score = newScoreDoc[i];
                 Document doc = searcher.doc(score.doc);
 
                 String paraId = doc.getField("paraid").stringValue();
@@ -158,6 +166,138 @@ public class QueryExpansionWordNet {
         writeToFile(fileName,runFileStr);
 
 
+    }
+
+    private int getFreq(String term, List<String> list) {
+        int frequency = Collections.frequency(list, term);
+        return frequency;
+    }
+    public CharArraySet getStopWordSet(){
+        //String stopWordDir = "/home/xl1044/ds/Query_Expansion/QueryExpaison/File/stop_word.cfg";
+        String stopWordDir = "src/resources/stop_word.cfg";
+
+        List<String> list = new ArrayList<>();
+
+        String line = "";
+
+        try{
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(stopWordDir));
+
+            while ((line = bufferedReader.readLine()) != null){
+                if (!line.isEmpty()){
+                    list.add(line.replace(" ",""));
+                }
+            }
+
+            bufferedReader.close();
+
+            CharArraySet stopWord = new CharArraySet(list,true);
+
+            return  stopWord;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+    private  List<String> analyze(String inputStr) throws IOException{
+        List<String> strList = new ArrayList<>();
+        //double check with the token
+        Analyzer test = new EnglishAnalyzer(getStopWordSet());
+
+        TokenStream tokenizer = test.tokenStream("content", inputStr);
+
+        CharTermAttribute charTermAttribute = tokenizer.addAttribute(CharTermAttribute.class);
+        tokenizer.reset();
+        while (tokenizer.incrementToken()) {
+            String token = charTermAttribute.toString();
+            strList.add(token);
+        }
+        tokenizer.end();
+        tokenizer.close();
+
+        return strList;
+    }
+
+    public static Set<String> getTop(Map<String, Float> unsortMap, int k) {
+        List<Map.Entry<String, Float>> list = new LinkedList<Map.Entry<String, Float>>(unsortMap.entrySet());
+
+        Collections.sort(list, new Comparator<Map.Entry<String, Float>>() {
+
+            public int compare(Map.Entry<String, Float> o1, Map.Entry<String, Float> o2) {
+                return (o2.getValue()).compareTo(o1.getValue());
+            }
+        });
+
+        Map<String, Float> Map = new LinkedHashMap<>();
+
+        int i = 0;
+        for (Map.Entry<String, Float> entry : list)
+
+        {
+            if (i < k || k == 0) {
+                Map.put(entry.getKey(), entry.getValue());
+                i++;
+            } else {
+                break;
+            }
+        }
+
+        return Map.keySet();
+    }
+
+    public List<String> expandQueryByRocchio(int top, ScoreDoc[] scoreDocs) throws IOException {
+        List<String> expandedList = new ArrayList<>();
+        Map<String,Float> term_map = new HashMap<>();
+
+
+        for (int i = 0; i < scoreDocs.length;i++){
+            ScoreDoc score = scoreDocs[i];
+            Document doc = searcher.doc(score.doc);
+            String paraBody = doc.getField("content").toString();
+
+
+            //document term vector
+            List<String> unigram_list = analyze(paraBody);
+
+            int rank = i+1;
+
+            float p = (float) 1 / (rank + 1);
+
+
+            for (String termStr : unigram_list){
+                //tf
+                int tf_w = getFreq(termStr, unigram_list);
+                //wrong length, document length
+                int tf_list = scoreDocs.length;
+                float term_score = p * ((float) tf_w / tf_list);
+                if (term_map.keySet().contains(termStr)) {
+                    //term_map.put(termStr, term_map.get(termStr) + term_score);
+                    continue;
+
+                } else {
+                    term_map.put(termStr, term_score);
+                }
+            }
+
+
+
+        }
+        Set<String> termSet = getTop(term_map, 5);
+
+        expandedList.addAll(termSet);
+
+        return expandedList;
+    }
+
+    private Query setBoost(String originalQuery, List<String> expanded_list) throws ParseException {
+        if (!expanded_list.isEmpty()) {
+            String rm_str = String.join(" ", expanded_list);
+            Query q = parser.parse(QueryParser.escape(originalQuery) + "^1.5" + QueryParser.escape(rm_str) + "^0.75");
+            return q;
+        } else {
+            Query q = parser.parse(QueryParser.escape(originalQuery));
+            return q;
+        }
     }
 
     private void writeToFile(String filename, Set<String> runfileStrings) {
