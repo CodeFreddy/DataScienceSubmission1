@@ -164,7 +164,10 @@ public class QueryExpansionWordNet {
         System.out.println("write file done");
 
     }
+
+
     private Query setBoost(String originalQuery, List<String> expanded_list) throws ParseException {
+        System.out.println("setBoost");
         if (!expanded_list.isEmpty()) {
             String rm_str = String.join(" ", expanded_list);
             Query q = parser.parse(QueryParser.escape(originalQuery) + "^1.5" + QueryParser.escape(rm_str) + "^0.75");
@@ -176,6 +179,7 @@ public class QueryExpansionWordNet {
     }
 
     public List<String> expandQueryByRocchio(int top, ScoreDoc[] scoreDocs) throws IOException {
+        System.out.println("expandQueryByRocchio");
         List<String> expandedList = new ArrayList<>();
         Map<String,Float> term_map = new HashMap<>();
 
@@ -236,6 +240,7 @@ public class QueryExpansionWordNet {
     }
 
     public static Set<String> getTop(Map<String, Float> unsortMap, int k) {
+        System.out.println("getTop");
         List<Map.Entry<String, Float>> list = new LinkedList<Map.Entry<String, Float>>(unsortMap.entrySet());
 
         Collections.sort(list, new Comparator<Map.Entry<String, Float>>() {
@@ -263,11 +268,13 @@ public class QueryExpansionWordNet {
     }
 
     private int getFreq(String term, List<String> list) {
+        System.out.println("getFreq");
         int frequency = Collections.frequency(list, term);
         return frequency;
     }
 
     public CharArraySet getStopWordSet(){
+        System.out.println("getStopWordSet");
         //String stopWordDir = "/home/xl1044/ds/Query_Expansion/QueryExpaison/File/stop_word.cfg";
         String stopWordDir = "src/resources/stop_word.cfg";
 
@@ -296,6 +303,7 @@ public class QueryExpansionWordNet {
     }
 
     private  List<String> analyze(String inputStr) throws IOException{
+        System.out.println("analyze");
         List<String> strList = new ArrayList<>();
         //double check with the token
         Analyzer test = new EnglishAnalyzer(getStopWordSet());
@@ -315,7 +323,7 @@ public class QueryExpansionWordNet {
     }
 
     public Map<String, Float> combine(Map<String, Float> originalQuery, Map<String, Float> expanededQuery){
-
+        System.out.println("combine");
         for (Map.Entry<String,Float> entry : originalQuery.entrySet()){
             String term = entry.getKey();
             float weight = entry.getValue();
