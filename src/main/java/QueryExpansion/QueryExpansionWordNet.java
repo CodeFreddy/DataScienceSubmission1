@@ -74,21 +74,17 @@ public class QueryExpansionWordNet {
     }
 
     public void runPage() throws IOException, ParseException {
-        try {
-            run(pageMap,"page-QueryExpansionWordNet.run");
-        } catch (JWNLException e) {
-            e.printStackTrace();
-        }
+        System.out.println("runing page ");
+        run(pageMap,"page-QueryExpansionWordNet.run");
+
 
     }
 
 
     public void runSection() throws IOException,ParseException{
-        try {
-            run(sectionMap,"section-QueryExpansionWordNet.run");
-        } catch (JWNLException e) {
-            e.printStackTrace();
-        }
+        System.out.println("running section");
+        run(sectionMap,"section-QueryExpansionWordNet.run");
+
     }
 
     public String getExpandedQuery(String queryStr){
@@ -121,7 +117,7 @@ public class QueryExpansionWordNet {
         return sb.toString();
     }
 
-    public void run(Map<String,String> map,String fileName) throws IOException, ParseException, JWNLException {
+    public void run(Map<String,String> map,String fileName) throws IOException, ParseException {
         searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open((new File(INDEX_DIR).toPath()))));
 
         searcher.setSimilarity(new BM25Similarity());
@@ -165,6 +161,7 @@ public class QueryExpansionWordNet {
             }
         }
         writeToFile(fileName,runFileStr);
+        System.out.println("write file done");
 
     }
     private Query setBoost(String originalQuery, List<String> expanded_list) throws ParseException {
