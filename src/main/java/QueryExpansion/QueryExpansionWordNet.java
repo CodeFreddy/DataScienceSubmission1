@@ -126,7 +126,7 @@ public class QueryExpansionWordNet {
 
 
         Set<String> runFileStr = new HashSet<>();
-        int count = 1
+        int count = 1;
         for (Map.Entry<String, String> entry:map.entrySet()){
             System.out.print(count+" / ");
             count++;
