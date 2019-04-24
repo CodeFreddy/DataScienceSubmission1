@@ -21,7 +21,21 @@ import java.io.*;
 import java.util.*;
 
 public class QueryExpansionLTR {
+    public interface ResultProcessor {
+        void process(List<String> textList, String text);
+    }
 
+    class RankInfoComparator implements Comparator<RankInfo> {
+
+        @Override
+        public int compare(RankInfo d1, RankInfo d2) {
+            if (d1.getScore() < d2.getScore())
+                return 1;
+            if (d1.getScore() > d2.getScore())
+                return -1;
+            return 0;
+        }
+    }
 
     private IndexSearcher searcher;
     private Map<String,String> pageMap;
@@ -33,7 +47,8 @@ public class QueryExpansionLTR {
     private Map<String,Map<String,String>> relevenceData = null;
     private String relevenceArtical = "/home/tianxiu/trec_eval/trec_eval/trec_eval/test.pages.cbor-article.qrels";
     private String releveanceHera = "/home/tianxiu/trec_eval/trec_eval/trec_eval/test.pages.cbor-hierarchical.qrels";
-
+    private String pageRunFile = "page-QueryExpansionLTR.run";
+    private String sectionRunFile = "section-QueryExpansionLTR.run";
     public QueryExpansionLTR(Map<String, String> pageMap,Map<String,String> sectionMap, String indexPath,String output){
         this.pageMap = pageMap;
         this.INDEX_DIR = indexPath;
@@ -83,6 +98,10 @@ public class QueryExpansionLTR {
 
     public void runPage() throws IOException, ParseException {
         run(pageMap,relevenceArtical);
+    }
+
+    public void runSection() throws IOException, ParseException {
+        run(sectionMap,releveanceHera);
     }
 
     private  RankInfo getRankInfoById(String id, ArrayList<RankInfo> list) {
@@ -290,8 +309,6 @@ public class QueryExpansionLTR {
     public void run(Map<String,String> map,String filename) throws IOException, ParseException {
         relevenceData = readData(filename);
 
-        int max_doc_per_query = 10;
-
 
         searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open((new File(INDEX_DIR).toPath()))));
 
@@ -306,6 +323,136 @@ public class QueryExpansionLTR {
 
         writeDataFile("feature.txt",writeToFileList);
 
+        //run Ranklib from java
+        String trainFile = OUTPUT_DIR+"/feature.txt";
+
+        String cmd1 = "java -jar /home/xl1044/RankLib.jar -train ";
+        cmd1 += trainFile;
+        cmd1 += " -ranker 3 -metric2t MAP -save ";
+        String modeDir = OUTPUT_DIR+"/model.txt";
+        cmd1 += modeDir;
+
+        runCmd(cmd1);
+        String cmd2 = "java -jar /home/xl1044/RankLib.jar -rank ";
+        cmd2 += trainFile;
+        cmd2 += " -load /Users/xin/Documents/testModel.txt -score ";
+        String scorePath = OUTPUT_DIR+"/score.txt";
+
+        cmd2+= scorePath;
+
+        runCmd(cmd2);
+
+        //now we havd score.txt and feature.txt if everything runds good
+
+        Map<String,List<RankInfo>> queryIdMap = generateRunFile(modeDir,scorePath);
+
+        List<String> runStr = rankResult(queryIdMap);
+
+        writeDataFile(pageRunFile,runStr);
+    }
+    public  List<String> rankResult(Map<String,List<RankInfo>> map){
+        List<String> runFileStr = new ArrayList<String>();
+        for (Map.Entry<String,List<RankInfo>> entry:map.entrySet()){
+            String queryID = entry.getKey();
+            List<RankInfo> rankInfoList = entry.getValue();
+            PriorityQueue<RankInfo> priorityQueue = new PriorityQueue<>(new RankInfoComparator());
+            for (RankInfo r: rankInfoList){
+                priorityQueue.add(r);
+            }
+
+            while (!priorityQueue.isEmpty()){
+                RankInfo r = priorityQueue.poll();
+
+                String runStr = queryID + " Q0 "+r.getParaId()+" "+r.getRank()+" "+r.getScore()+" team3 QueryExpansionLTR";
+                if (!runFileStr.contains(runStr)){
+                    runFileStr.add(runStr);
+                }
+            }
+        }
+
+        return runFileStr;
+    }
+
+    public static Map<String,List<RankInfo>> generateRunFile(String modeldir,String scoreDir){
+        List<RankInfo> res = new ArrayList<>();
+        Map<String,List<RankInfo>> map = new HashMap<>();
+        File f = new File(modeldir);
+        BufferedReader br = null;
+        BufferedReader br2 = null;
+        File f2 = new File(scoreDir);
+        try {
+            br = new BufferedReader(new FileReader(f));
+            br2 = new BufferedReader(new FileReader(f2));
+            String text = null;
+            String text2 = null;
+            while ((text = br.readLine()) != null && (text2 = br2.readLine()) != null){
+                String[] strArr = text.split(" ");
+                System.out.print(text2 + " => ");
+
+                String[] strArrScore = text2.split("\\s+");
+//
+                String score = strArrScore[2];
+                System.out.println(score);
+//                System.out.println(strArrScore.length);
+                String queryId = strArr[1].substring(4);
+                String paraId = strArr[5].substring(6);
+                String rank = strArr[6];
+                String rankScore = strArr[7];
+
+                RankInfo rankInfo = new RankInfo();
+                rankInfo.setRank(Integer.parseInt(rank));
+                rankInfo.setScore(Float.parseFloat(rankScore));
+                rankInfo.setParaId(paraId);
+                rankInfo.setQueryStr(queryId);
+                if (map.containsKey(queryId)){
+                    map.get(queryId).add(rankInfo);
+                }else{
+                    List<RankInfo> list = new ArrayList<>();
+                    list.add(rankInfo);
+                    map.put(queryId,list);
+                }
+            }
+
+            br.close();
+            br2.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
+    public  List<String> runCmd(String cmd){
+        return runCommand(cmd, new ResultProcessor() {
+            @Override
+            public void process(List<String> textList, String text) {
+                textList.add(text);
+            }
+        });
+    }
+
+    private List<String> runCommand(String cmd, ResultProcessor processor) {
+        List<String> resultList = new ArrayList<String>();
+        String[] cmds = {"/bin/sh", "-c", cmd};
+        Process pro = null;
+        try {
+            pro = Runtime.getRuntime().exec(cmds);
+            pro.waitFor();
+            InputStream in = pro.getInputStream();
+            BufferedReader read = new BufferedReader(new InputStreamReader(in));
+            String line = null;
+            while ((line = read.readLine()) != null) {
+                processor.process(resultList, line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return resultList;
     }
 
     public List<String> expandQueryByRocchio(int top, ScoreDoc[] scoreDocs) throws IOException {
