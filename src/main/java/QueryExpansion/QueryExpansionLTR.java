@@ -347,7 +347,7 @@ public class QueryExpansionLTR {
 
         //now we havd score.txt and feature.txt if everything runds good
 
-        Map<String,List<RankInfo>> queryIdMap = generateRunFile(modeDir,scorePath);
+        Map<String,List<RankInfo>> queryIdMap = generateRunFile(trainFile,scorePath);
 
         List<String> runStr = rankResult(queryIdMap);
 
