@@ -391,6 +391,8 @@ public class QueryExpansionLTR {
             while ((text = br.readLine()) != null && (text2 = br2.readLine()) != null){
                 //feature read
                 String[] strArr = text.split(" ");
+                System.out.println("feature: "+text);
+                System.out.println("score: "+text2);
                 String queryId = strArr[1].substring(4);
                 String paraId = strArr[5].substring(6);
                 String rank = strArr[6];
