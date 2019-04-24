@@ -377,6 +377,7 @@ public class QueryExpansionLTR {
     }
 
     public static Map<String,List<RankInfo>> generateRunFile(String modeldir,String scoreDir){
+        System.out.println("mode: " +modeldir +"  score dir:"+scoreDir );
         Map<String,List<RankInfo>> map = new HashMap<>();
         File f = new File(modeldir);
         BufferedReader br = null;
