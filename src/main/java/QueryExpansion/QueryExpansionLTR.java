@@ -365,8 +365,9 @@ public class QueryExpansionLTR {
 
             while (!priorityQueue.isEmpty()){
                 RankInfo r = priorityQueue.poll();
-
-                String runStr = queryID + " Q0 "+r.getParaId()+" "+r.getRank()+" "+r.getScore()+" team3 QueryExpansionLTR";
+                String rank = Integer.toString(r.getRank());
+                String score = Float.toString(r.getScore());
+                String runStr = queryID + " Q0 "+r.getParaId()+" "+rank+" "+score+" team3 QueryExpansionLTR";
                 if (!runFileStr.contains(runStr)){
                     runFileStr.add(runStr);
                 }
