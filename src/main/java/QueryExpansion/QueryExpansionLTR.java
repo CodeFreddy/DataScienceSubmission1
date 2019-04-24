@@ -97,11 +97,11 @@ public class QueryExpansionLTR {
     }
 
     public void runPage() throws IOException, ParseException {
-        run(pageMap,relevenceArtical);
+        run(pageMap,relevenceArtical,pageRunFile);
     }
 
     public void runSection() throws IOException, ParseException {
-        run(sectionMap,releveanceHera);
+        run(sectionMap,releveanceHera,sectionRunFile);
     }
 
     private  RankInfo getRankInfoById(String id, ArrayList<RankInfo> list) {
@@ -234,7 +234,10 @@ public class QueryExpansionLTR {
 
     public Map<String,ArrayList<RankInfo>>  featureBM25(Map<String,String> map) throws ParseException, IOException {
         Map<String,ArrayList<RankInfo>> result = new HashMap<>();
+        int count=1;
         for (Map.Entry<String, String> entry:map.entrySet()){
+            System.out.print(count+" / "+map.size());
+            count++;
             String queryStr = entry.getValue();
             String queryId = entry.getKey();
             Query q = parser.parse(QueryParser.escape(queryStr));
@@ -266,8 +269,10 @@ public class QueryExpansionLTR {
 
     public Map<String,ArrayList<RankInfo>> featureQueryExpansion(Map<String,String> map) throws ParseException, IOException {
         Map<String,ArrayList<RankInfo>> result = new HashMap<>();
-
+        int count = 1;
         for (Map.Entry<String, String> entry:map.entrySet()){
+            System.out.print(count+" / "+map.size());
+            count++;
             String queryStr = entry.getValue();
             String queryId = entry.getKey();
 
@@ -306,7 +311,7 @@ public class QueryExpansionLTR {
         return result;
     }
 
-    public void run(Map<String,String> map,String filename) throws IOException, ParseException {
+    public void run(Map<String,String> map,String filename,String outputFile) throws IOException, ParseException {
         relevenceData = readData(filename);
 
 
@@ -351,7 +356,7 @@ public class QueryExpansionLTR {
 
         List<String> runStr = rankResult(queryIdMap);
 
-        writeDataFile(pageRunFile,runStr);
+        writeDataFile(outputFile,runStr);
     }
     public  List<String> rankResult(Map<String,List<RankInfo>> map){
         List<String> runFileStr = new ArrayList<String>();
