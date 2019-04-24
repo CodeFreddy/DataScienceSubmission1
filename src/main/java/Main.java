@@ -1,10 +1,7 @@
 package main.java;
 
 import edu.unh.cs.treccar_v2.Data;
-import main.java.QueryExpansion.QueryExpansion;
-import main.java.QueryExpansion.QueryExpansionLDA;
-import main.java.QueryExpansion.QueryExpansionQueryEntity;
-import main.java.QueryExpansion.QueryExpansionWordNet;
+import main.java.QueryExpansion.*;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 import java.io.File;
@@ -89,10 +86,13 @@ public class Main {
 //        section_bl.RankDocWithBigram_Laplace(sectionMap, OUTPUT_DIR+"/"+"BigramLanguageModel-Laplace-Section.run");
 
 //        System.out.println("QueryExpansion Begin");
-        QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+        //QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
 
-        qe.runPage();
-//        qe.runSection();
+        //qe.runPage();
+        //qe.runSection();
+        QueryExpansionLTR queryExpansionLTR = new QueryExpansionLTR(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+        queryExpansionLTR.runPage();
+//
 
 
         // Run NLP entities variation methods
