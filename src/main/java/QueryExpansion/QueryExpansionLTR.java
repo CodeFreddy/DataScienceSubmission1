@@ -156,8 +156,9 @@ public class QueryExpansionLTR {
     }
 
     public ArrayList<String> getAllDocId(ArrayList<RankInfo> list1,ArrayList<RankInfo> list2){
-        ArrayList<String> list = new ArrayList<>();
+
         ArrayList<RankInfo> total_rankInfo = new ArrayList<RankInfo>();
+
         if (list2 != null || list1.size() != 0)
             total_rankInfo.addAll(list1);
         if (list2 != null || list2.size() != 0)
@@ -171,7 +172,6 @@ public class QueryExpansionLTR {
         hs.addAll(total_documents);
         total_documents.clear();
         total_documents.addAll(hs);
-
         return total_documents;
     }
 
