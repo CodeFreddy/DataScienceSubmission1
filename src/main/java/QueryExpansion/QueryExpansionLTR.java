@@ -252,18 +252,15 @@ public class QueryExpansionLTR {
 
         int max_doc_per_query = 10;
 
-        ArrayList<String> writeStringList = new ArrayList<String>();
-        Map<String, ArrayList<RankInfo>> result = new HashMap<>();
 
         searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open((new File(INDEX_DIR).toPath()))));
 
         searcher.setSimilarity(new BM25Similarity());
 
         parser = new QueryParser("content", new StandardAnalyzer());
-        ArrayList<String> runFileStr = new ArrayList<String>();
 
         Map<String,ArrayList<RankInfo>> bm25Result = featureBM25(map);
-        Map<String,ArrayList<RankInfo>> qeResult = new HashMap<>();
+        Map<String,ArrayList<RankInfo>> qeResult = featureQueryExpansion(map);
 
         List<String> writeToFileList = generateFeature(bm25Result,qeResult,map);
 
