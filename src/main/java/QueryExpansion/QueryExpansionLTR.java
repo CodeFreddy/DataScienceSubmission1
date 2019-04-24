@@ -131,7 +131,9 @@ public class QueryExpansionLTR {
                 }
 
                 String line = relevant + " qid:" + queryId + " 1:" + f1 + " 2:" + f2 +" # DocId:" + id;
+                System.out.println(line);
                 writeToFileList.add(line);
+
             }
 
         }
