@@ -335,7 +335,9 @@ public class QueryExpansionLTR {
         runCmd(cmd1);
         String cmd2 = "java -jar /home/xl1044/RankLib.jar -rank ";
         cmd2 += trainFile;
-        cmd2 += " -load /Users/xin/Documents/testModel.txt -score ";
+        cmd2 += " -load ";
+        cmd2 += modeDir;
+        cmd2 += " -score ";
         String scorePath = OUTPUT_DIR+"/score.txt";
 
         cmd2+= scorePath;
