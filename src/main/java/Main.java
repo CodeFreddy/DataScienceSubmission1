@@ -50,7 +50,7 @@ public class Main {
 
         QueryExpansionWordNet queryExpansionWordNet = new QueryExpansionWordNet(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
         queryExpansionWordNet.runPage();
-        queryExpansionWordNet.runSection();
+//        queryExpansionWordNet.runSection();
         //       //  Store all query strings temporarily.
 //
 //
