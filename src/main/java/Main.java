@@ -93,8 +93,8 @@ public class Main {
         //qe.runSection();
         System.out.println("Query expansion with LTR start");
         QueryExpansionLTR queryExpansionLTR = new QueryExpansionLTR(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-        queryExpansionLTR.runPage();
-//        queryExpansionLTR.runSection();
+//        queryExpansionLTR.runPage();
+        queryExpansionLTR.runSection();
         System.out.println("Query expansion with LTR end");
 //
 
