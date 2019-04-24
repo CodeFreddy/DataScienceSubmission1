@@ -329,10 +329,11 @@ public class QueryExpansionLTR {
         String cmd1 = "java -jar /home/xl1044/RankLib.jar -train ";
         cmd1 += trainFile;
         cmd1 += " -ranker 3 -metric2t MAP -save ";
-        String modeDir = OUTPUT_DIR+"/feature.txt";
+        String modeDir = OUTPUT_DIR+"/model.txt";
         cmd1 += modeDir;
 
         runCmd(cmd1);
+
         String cmd2 = "java -jar /home/xl1044/RankLib.jar -rank ";
         cmd2 += trainFile;
         cmd2 += " -load ";
@@ -376,7 +377,6 @@ public class QueryExpansionLTR {
     }
 
     public static Map<String,List<RankInfo>> generateRunFile(String modeldir,String scoreDir){
-        List<RankInfo> res = new ArrayList<>();
         Map<String,List<RankInfo>> map = new HashMap<>();
         File f = new File(modeldir);
         BufferedReader br = null;
