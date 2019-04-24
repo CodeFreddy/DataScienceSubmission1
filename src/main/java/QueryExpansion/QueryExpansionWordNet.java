@@ -128,7 +128,7 @@ public class QueryExpansionWordNet {
         Set<String> runFileStr = new HashSet<>();
         int count = 1;
         for (Map.Entry<String, String> entry:map.entrySet()){
-//            System.out.print(count+" / "+map.size());
+            System.out.print(count+" / "+map.size());
             count++;
             String queryStr = entry.getValue();
             String queryId = entry.getKey();
