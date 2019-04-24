@@ -109,6 +109,7 @@ public class QueryExpansionLTR {
             ArrayList<RankInfo> rankInfoList1 = feature1.get(queryId);
             ArrayList<RankInfo> rankInfoList2 = feature2.get(queryId);
 
+
             Map<String,String> revelanceMap = relevenceData.get(queryId);
             ArrayList<String> totalDocs = getAllDocId(rankInfoList1,rankInfoList2);
             System.out.println("Total :" + totalDocs.size() + " docs for Query: " + queryId);
@@ -155,8 +156,10 @@ public class QueryExpansionLTR {
     public ArrayList<String> getAllDocId(ArrayList<RankInfo> list1,ArrayList<RankInfo> list2){
         ArrayList<String> list = new ArrayList<>();
         ArrayList<RankInfo> total_rankInfo = new ArrayList<RankInfo>();
-        total_rankInfo.addAll(list1);
-        total_rankInfo.addAll(list2);
+        if (list1.size() != 0)
+            total_rankInfo.addAll(list1);
+        if (list2.size() != 0)
+            total_rankInfo.addAll(list2);
 
         ArrayList<String> total_documents = new ArrayList<String>();
         for (RankInfo rank : total_rankInfo) {
