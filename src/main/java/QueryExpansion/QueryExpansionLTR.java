@@ -329,7 +329,7 @@ public class QueryExpansionLTR {
         String cmd1 = "java -jar /home/xl1044/RankLib.jar -train ";
         cmd1 += trainFile;
         cmd1 += " -ranker 3 -metric2t MAP -save ";
-        String modeDir = OUTPUT_DIR+"/model.txt";
+        String modeDir = OUTPUT_DIR+"/feature.txt";
         cmd1 += modeDir;
 
         runCmd(cmd1);
@@ -388,18 +388,23 @@ public class QueryExpansionLTR {
             String text = null;
             String text2 = null;
             while ((text = br.readLine()) != null && (text2 = br2.readLine()) != null){
+                //feature read
                 String[] strArr = text.split(" ");
+                String queryId = strArr[1].substring(4);
+                String paraId = strArr[5].substring(6);
+                String rank = strArr[6];
+                String rankScore = strArr[7];
+
+                //score read
                 System.out.print(text2 + " => ");
 
                 String[] strArrScore = text2.split("\\s+");
 //
                 String score = strArrScore[2];
                 System.out.println(score);
-//                System.out.println(strArrScore.length);
-                String queryId = strArr[1].substring(4);
-                String paraId = strArr[5].substring(6);
-                String rank = strArr[6];
-                String rankScore = strArr[7];
+                System.out.println(strArr.length);
+
+
 
                 RankInfo rankInfo = new RankInfo();
                 rankInfo.setRank(Integer.parseInt(rank));
