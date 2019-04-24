@@ -157,7 +157,7 @@ public class QueryExpansionLTR {
                 }
 
                 String line = relevant + " qid:" + queryId + " 1:" + f1 + " 2:" + f2 +" # DocId:" + id+" "+rank+" "+rankScore;
-                System.out.println(line);
+//                System.out.println(line);
                 writeToFileList.add(line);
 
             }
@@ -378,7 +378,7 @@ public class QueryExpansionLTR {
     }
 
     public static Map<String,List<RankInfo>> generateRunFile(String modeldir,String scoreDir){
-        System.out.println("mode: " +modeldir +"  score dir:"+scoreDir );
+//        System.out.println("mode: " +modeldir +"  score dir:"+scoreDir );
         Map<String,List<RankInfo>> map = new HashMap<>();
         File f = new File(modeldir);
         BufferedReader br = null;
@@ -392,21 +392,21 @@ public class QueryExpansionLTR {
             while ((text = br.readLine()) != null && (text2 = br2.readLine()) != null){
                 //feature read
                 String[] strArr = text.split(" ");
-                System.out.println("feature: "+text);
-                System.out.println("score: "+text2);
+//                System.out.println("feature: "+text);
+//                System.out.println("score: "+text2);
                 String queryId = strArr[1].substring(4);
                 String paraId = strArr[5].substring(6);
                 String rank = strArr[6];
                 String rankScore = strArr[7];
 
                 //score read
-                System.out.print(text2 + " => ");
+//                System.out.print(text2 + " => ");
 
                 String[] strArrScore = text2.split("\\s+");
 //
                 String score = strArrScore[2];
-                System.out.println(score);
-                System.out.println(strArr.length);
+//                System.out.println(score);
+//                System.out.println(strArr.length);
 
 
 

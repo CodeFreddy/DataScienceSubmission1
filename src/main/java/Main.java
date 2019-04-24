@@ -44,10 +44,11 @@ public class Main {
         Map<String,String> sectionMap = queryData.getAllSectionQueries();
         ArrayList<Data.Page> pageList = queryData.getPageList();
         ArrayList<Data.Section> sectionList = queryData.getSectionList();
-
-//        QueryExpansionWordNet queryExpansionWordNet = new QueryExpansionWordNet(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-//        queryExpansionWordNet.runPage();
-//        queryExpansionWordNet.runSection();
+        System.out.println("Query expansion with wordnet start");
+        QueryExpansionWordNet queryExpansionWordNet = new QueryExpansionWordNet(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+        queryExpansionWordNet.runPage();
+        queryExpansionWordNet.runSection();
+        System.out.println("Query expansion with wordnet end");
         //       //  Store all query strings temporarily.
 //
 //
@@ -90,8 +91,11 @@ public class Main {
 
         //qe.runPage();
         //qe.runSection();
+        System.out.println("Query expansion with LTR start");
         QueryExpansionLTR queryExpansionLTR = new QueryExpansionLTR(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
         queryExpansionLTR.runPage();
+        queryExpansionLTR.runSection();
+        System.out.println("Query expansion with LTR end");
 //
 
         // Run NLP entities variation methods
