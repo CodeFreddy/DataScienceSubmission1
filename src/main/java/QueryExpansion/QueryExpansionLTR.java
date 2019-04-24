@@ -111,11 +111,18 @@ public class QueryExpansionLTR {
 
 
             Map<String,String> revelanceMap = relevenceData.get(queryId);
-            ArrayList<String> totalDocs = getAllDocId(rankInfoList1,rankInfoList2);
-            System.out.println("Total :" + totalDocs.size() + " docs for Query: " + queryId);
+//            ArrayList<String> totalDocs = getAllDocId(rankInfoList1,rankInfoList2);
+            Map<String, RankInfo> totalDocsMap = getAllDocId(rankInfoList1,rankInfoList2);
+
+            System.out.println("Total :" + totalDocsMap.size() + " docs for Query: " + queryId);
 
 
-            for (String id : totalDocs){
+            for (Map.Entry<String,RankInfo> newEnty: totalDocsMap.entrySet()){
+                String id = newEnty.getKey();
+                String rank = Integer.toString(newEnty.getValue().getRank());
+                String rankScore = Float.toString(newEnty.getValue().getScore());
+
+
                 RankInfo r1 = getRankInfoById(id,rankInfoList1);
                 RankInfo r2 = getRankInfoById(id,rankInfoList2);
 
@@ -130,7 +137,7 @@ public class QueryExpansionLTR {
                     }
                 }
 
-                String line = relevant + " qid:" + queryId + " 1:" + f1 + " 2:" + f2 +" # DocId:" + id;
+                String line = relevant + " qid:" + queryId + " 1:" + f1 + " 2:" + f2 +" # DocId:" + id+" "+rank+" "+rankScore;
                 System.out.println(line);
                 writeToFileList.add(line);
 
@@ -155,24 +162,55 @@ public class QueryExpansionLTR {
         }
     }
 
-    public ArrayList<String> getAllDocId(ArrayList<RankInfo> list1,ArrayList<RankInfo> list2){
+    public Map<String,RankInfo> getAllDocId(ArrayList<RankInfo> list1,ArrayList<RankInfo> list2){
 
         ArrayList<RankInfo> total_rankInfo = new ArrayList<RankInfo>();
+        Map<String,RankInfo> map = new HashMap<>();
 
         if (list2 != null || list1.size() != 0)
             total_rankInfo.addAll(list1);
         if (list2 != null || list2.size() != 0)
             total_rankInfo.addAll(list2);
 
-        ArrayList<String> total_documents = new ArrayList<String>();
-        for (RankInfo rank : total_rankInfo) {
-            total_documents.add(rank.getParaId());
+        for (RankInfo rankInfo: list1){
+            String paraid = rankInfo.getParaId();
+
+            if (!map.containsKey(paraid)){
+                map.put(paraid,rankInfo);
+            }else{
+                RankInfo r2 = map.get(paraid);
+
+                if (rankInfo.getScore() > r2.getScore() ){
+                    map.put(paraid,rankInfo);
+                }
+            }
         }
-        Set<String> hs = new HashSet<>();
-        hs.addAll(total_documents);
-        total_documents.clear();
-        total_documents.addAll(hs);
-        return total_documents;
+
+        for (RankInfo rankInfo: list2){
+            String paraid = rankInfo.getParaId();
+
+            if (!map.containsKey(paraid)){
+                map.put(paraid,rankInfo);
+            }else{
+                RankInfo r2 = map.get(paraid);
+
+                if (rankInfo.getScore() > r2.getScore() ){
+                    map.put(paraid,rankInfo);
+                }
+            }
+        }
+
+
+
+//        ArrayList<String> total_documents = new ArrayList<String>();
+//        for (RankInfo rank : total_rankInfo) {
+//            total_documents.add(rank.getParaId());
+//        }
+//        Set<String> hs = new HashSet<>();
+//        hs.addAll(total_documents);
+//        total_documents.clear();
+//        total_documents.addAll(hs);
+        return map;
     }
 
     public Map<String,ArrayList<RankInfo>>  featureBM25(Map<String,String> map) throws ParseException, IOException {

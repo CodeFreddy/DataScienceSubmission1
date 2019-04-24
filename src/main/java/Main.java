@@ -90,11 +90,9 @@ public class Main {
 
         //qe.runPage();
         //qe.runSection();
-//        QueryExpansionLTR queryExpansionLTR = new QueryExpansionLTR(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-//        queryExpansionLTR.runPage();
+        QueryExpansionLTR queryExpansionLTR = new QueryExpansionLTR(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+        queryExpansionLTR.runPage();
 //
-        ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash", "-c", "ls");
 
         // Run NLP entities variation methods
 //        ArrayList<String> page_run = NLP_variation.getResults(pageMap, INDEX_DIRECTORY);
