@@ -48,8 +48,8 @@ public class Main {
         ArrayList<Data.Page> pageList = queryData.getPageList();
         ArrayList<Data.Section> sectionList = queryData.getSectionList();
 
-        QueryExpansionWordNet queryExpansionWordNet = new QueryExpansionWordNet(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-        queryExpansionWordNet.runPage();
+//        QueryExpansionWordNet queryExpansionWordNet = new QueryExpansionWordNet(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+//        queryExpansionWordNet.runPage();
 //        queryExpansionWordNet.runSection();
         //       //  Store all query strings temporarily.
 //
@@ -89,9 +89,9 @@ public class Main {
 //        section_bl.RankDocWithBigram_Laplace(sectionMap, OUTPUT_DIR+"/"+"BigramLanguageModel-Laplace-Section.run");
 
 //        System.out.println("QueryExpansion Begin");
-        //QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
-//
-//        qe.runPage();
+        QueryExpansion qe = new QueryExpansion(pageMap,sectionMap,INDEX_DIRECTORY,OUTPUT_DIR);
+
+        qe.runPage();
 //        qe.runSection();
 
 
