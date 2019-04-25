@@ -67,6 +67,7 @@ public class QueryExpansionLTR {
             br = new BufferedReader(new FileReader(f));
             String text = null;
             while ((text = br.readLine()) != null){
+
                 String queryId = text.split(" ")[0];
                 String paraID = text.split(" ")[2];
                 String rank = text.split(" ")[3];
@@ -128,8 +129,10 @@ public class QueryExpansionLTR {
             ArrayList<RankInfo> rankInfoList1 = feature1.get(queryId);
             ArrayList<RankInfo> rankInfoList2 = feature2.get(queryId);
 
-
+            if (!relevenceData.containsKey(queryId))
+                continue;
             Map<String,String> revelanceMap = relevenceData.get(queryId);
+
 //            ArrayList<String> totalDocs = getAllDocId(rankInfoList1,rankInfoList2);
             Map<String, RankInfo> totalDocsMap = getAllDocId(rankInfoList1,rankInfoList2);
 
