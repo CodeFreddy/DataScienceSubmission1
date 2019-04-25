@@ -136,7 +136,7 @@ public class QueryExpansionLTR {
 //            ArrayList<String> totalDocs = getAllDocId(rankInfoList1,rankInfoList2);
             Map<String, RankInfo> totalDocsMap = getAllDocId(rankInfoList1,rankInfoList2);
 
-            System.out.println("Total :" + totalDocsMap.size() + " docs for Query: " + queryId);
+            //System.out.println("Total :" + totalDocsMap.size() + " docs for Query: " + queryId);
 
 
             for (Map.Entry<String,RankInfo> newEnty: totalDocsMap.entrySet()){
